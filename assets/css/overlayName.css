@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: whitesmoke;
+  height: 100vh;
+}
+
+.overlay-backdrop {
+  position: fixed;
+  inset: 0;                        /* TODO: vill vi att hela skärmen ska täckas? bestäm när spelvyn är klar*/
+  background: rgba(0,0,0,0.33);  /* TODO: ändra hur genomskinlig bakgrunden ska vara när vi gjort spelvyn*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-card {
+  background: white;
+  padding: 30px;
+  width: 340px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  text-align: center;
+
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #bdbcbc;
+  margin: 10px 0;
+  margin-right: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  background: #20a33f; /*TODO: ändra färgerna när vi gjort spelvyn. Passar grön?*/
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+}
+
+.error {
+  margin-top: 10px;
+  color: red;
+  font-size: 14px;
+}
