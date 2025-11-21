@@ -1,0 +1,43 @@
+.scoreBoard-display {
+  display: grid;
+  justify-content: stretch;
+  border: 1px solid black;
+  width: 20em;
+  height: 25em;
+}
+
+.scoreBoard-name {
+  border: 1px solid hotpink;
+  margin: 5px;
+  padding: 3px;
+}
+
+.scoreBoard-guesses {
+  border: 1px solid hotpink;
+  margin: 5px;
+  padding: 3px;
+}
+
+.scoreBoard-word-lengt {
+  border: 1px solid hotpink;
+  margin: 5px;
+  padding: 3px;
+}
+
+.scoreBoard-time {
+  border: 1px solid hotpink;
+  margin: 5px;
+  padding: 3px;
+}
+
+.scoreBoard-date {
+  border: 1px solid hotpink;
+  margin: 5px;
+  padding: 3px;
+}
+
+.scoreBoard-status {
+  border: 1px solid hotpink;
+  margin: 5px;
+  padding: 3px;
+}

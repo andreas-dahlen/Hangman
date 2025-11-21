@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="./assets/css/lose-display.css">
     <link rel="stylesheet" href="./assets/css/player-creation.css">
     <link rel="stylesheet" href="./assets/css/win-display.css">
+    <link rel="stylesheet" href="./assets/css/scoreBoard.css">
+    <link rel="stylesheet" href="./assets/css/overlayName.css">
 
-    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/main-file/main.js"></script>
 
     <!-- this will only link to one JS file later!!! this is just for some testing xD -->
 
@@ -28,20 +30,20 @@
     <main>
         <section class="game-view">
 
-          <!-- <div class="change-user"></div> -->
-           
-          
-          <div>
-            <div class="wrong-guesses-display"></div>
-            <div class="hangman-display"></div>
-          </div>
+            <!-- <div class="change-user"></div> -->
 
-          <div class="guess-result-display"></div>
 
-          <div class="game-letter-display"></div>
-          <input type="text" class="guess-bar" placeholder="Guess a letter">
+            <div>
+                <div class="wrong-guesses-display"></div>
+                <div class="hangman-display"></div>
+            </div>
 
-          
+            <div class="guess-result-display"></div>
+
+            <div class="game-letter-display"></div>
+            <input type="text" class="guess-bar" placeholder="Guess a letter">
+
+
 
         </section>
 
@@ -49,21 +51,33 @@
 
         </section>
 
-        <section class="score-board-display">
-          <div class="overlay-backdrop" id="overlay-score-board">
-            <h2>Scoreboard</h2>
-            <div class="overlay-card">
-                    <!--Här ska cards genereras från JS. 1 till 10 -->
+        <section class="overlayNameDisplay" id="overlayNameDisplay">
+            <div class="overlay-backdrop" id="overlay-name">
+                <div class="overlay-card">
 
-                    <!-- name -->
-                     <!-- wrong guesses -->
-                      <!-- word length -->
-                       <!-- date -->
-                        <!-- win or lose -->
+                    <label for="nameInput">Name:</label>
+                    <input type="text" id="nameInput" placeholder="Name your player" />
 
+                    <button id="startButton" class="button">Start game</button>
+
+                    <p id="error" class="error" hidden>Name youre player</p>
+                </div>
             </div>
-          </div>
         </section>
+
+        <Div class="scoreBoard-display">
+        
+            <div class="scoreBoard-name" id="scoreBoardName">Name:
+        
+            </div>
+        
+            <div class="scoreBoard-guesses" id="scoreBoard-guesses">Guesses:</div>
+            <div class="scoreBoard-word-lengt" id="scoreBoard-word-lengt">word lengt:</div>
+            <div class="scoreBoard-time" id="scoreBoard-time">Time:</div>
+            <div class="scoreBoard-date" id="scoreBoard-date">Date:</div>
+            <div class="scoreBoard-status" id="scoreBoard-status">Status:</div>
+        
+        </Div>
 
         <section class="winner-display">
             <h2>Congratulations!</h2>
