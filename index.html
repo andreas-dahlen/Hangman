@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./assets/css/scoreBoard.css">
     <link rel="stylesheet" href="./assets/css/overlayName.css">
 
-    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/main-file/main.js"></script>
 
     <!-- this will only link to one JS file later!!! this is just for some testing xD -->
 
@@ -51,7 +51,7 @@
 
         </section>
 
-        <section class="score-board-display">
+        <section class="overlayNameDisplay" id="overlayNameDisplay">
             <div class="overlay-backdrop" id="overlay-name">
                 <div class="overlay-card">
 
@@ -63,8 +63,21 @@
                     <p id="error" class="error" hidden>Name youre player</p>
                 </div>
             </div>
-            <!--TODO: sätta class på hela div-elementet, klassen ska heta "hidden" -->
         </section>
+
+        <Div class="scoreBoard-display">
+        
+            <div class="scoreBoard-name" id="scoreBoardName">Name:
+        
+            </div>
+        
+            <div class="scoreBoard-guesses" id="scoreBoard-guesses">Guesses:</div>
+            <div class="scoreBoard-word-lengt" id="scoreBoard-word-lengt">word lengt:</div>
+            <div class="scoreBoard-time" id="scoreBoard-time">Time:</div>
+            <div class="scoreBoard-date" id="scoreBoard-date">Date:</div>
+            <div class="scoreBoard-status" id="scoreBoard-status">Status:</div>
+        
+        </Div>
 
         <section class="winner-display">
             <h2>Congratulations!</h2>

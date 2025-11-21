@@ -1,5 +1,2 @@
-import { populateScoreboard } from './scoreBoard';
 
-
-
-populateScoreboard();
+import './overlayName.js';

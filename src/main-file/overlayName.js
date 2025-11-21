@@ -1,30 +1,39 @@
+
+import { populateScoreboard } from './scoreBoard.js';
 const startButton = document.getElementById("startButton");
+const overlayName = document.getElementById("overlay-name")
 const nameInput = document.getElementById("nameInput");
 const error = document.getElementById("error");
 
+const overlayNameDisplay = document.getElementById("overlayNameDisplay")
 
-startButton.addEventListener("click", () => {
+
+
+startButton.addEventListener('click', () => {
+ 
   const name = nameInput.value.trim();
+
 
   if (!name) {
     error.hidden = false;
     return;
   }
+  
+  overlayNameDisplay.classList.toggle('hide');
+  localStorage.setItem("namn", name); 
+  populateScoreboard();
 
-  // Spara namnet
-  localStorage.setItem("namn", name);             //exportera namnet från local storage till scorBoard.js
+  
+})
 
-  // Skicka till spelet
-  // window.location.href = "game.html"; //ändrar namnet på filken
-  // ändra synligheten på element 
-});
 
-// använda dessa för hidden:
-// function on() {
-//   document.getElementById("overlay").style.display = "block";
-// }
+  
 
-// function off() {
-//   document.getElementById("overlay").style.display = "none";
-// }
+
+
+
+
+
+
+
 

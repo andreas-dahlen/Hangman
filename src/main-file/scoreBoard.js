@@ -1,6 +1,6 @@
 export function populateScoreboard() {
 
-  const nameElement = document.getElementById("scoreBoardName"); //hittat elementet med id
+  const nameElement = document.getElementById("scoreBoardName"); 
 
   console.log(window.localStorage.getItem('namn'));
 
@@ -11,7 +11,7 @@ export function populateScoreboard() {
   //JASON parse = Jason för att se datan korrekt , parce = konfigurerar en existerande strän till en  datastruktur
   
   if (nameFromStorage) {
-    nameElement.innerText ='Name: ' + nameFromStorage;
+    nameElement.innerText ='Name:' + nameFromStorage;
 
   }
 
@@ -22,8 +22,6 @@ export function populateScoreboard() {
 }
 
 
-// kod för att stoppa in värdet i scoreboard //stoppa in värde i ett element
 
 
-//  kunna spara fler körningar i localStorage
-// en key i localstorage för alla enskilda objekt ()
+
