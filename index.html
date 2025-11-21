@@ -1,15 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hang Man Game</title>
+
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="./assets/css/lose-display.css">
+    <link rel="stylesheet" href="./assets/css/player-creation.css">
+    <link rel="stylesheet" href="./assets/css/win-display.css">
+
+    <script type="module" src="./src/main.js"></script>
+
+    <!-- this will only link to one JS file later!!! this is just for some testing xD -->
+
 </head>
+
 <body>
-    <!-- Overlay -->
+
+    <header>
+        <img src="" alt="">
+        <h1>Hang Man</h1>
+        <nav>Scoreboard</nav>
+    </header>
+
+    <main>
+        <section class="game-view">
+
+            <!-- <div class="change-user"></div> -->
+
+
+            <div>
+                <div class="wrong-guesses-display"></div>
+                <div class="hangman-display"></div>
+            </div>
+
+            <div class="guess-result-display"></div>
+
+            <div class="game-letter-display"></div>
+            <input type="text" class="guess-bar" placeholder="Guess a letter">
+
+
+
+        </section>
+
+        <section class="name-creator-display">
+
+        </section>
+
+        <section class="score-board-display">
             <div class="overlay-backdrop" id="overlay-name">
                 <div class="overlay-card">
-                    <!-- <h2>Name youre player:</h2> -->
 
                     <label for="nameInput">Name:</label>
                     <input type="text" id="nameInput" placeholder="Name your player" />
@@ -19,6 +61,29 @@
                     <p id="error" class="error" hidden>Name youre player</p>
                 </div>
             </div>
-            <!-- sätta class på hela div-elementet, klassen ska heta "hidden" -->
+            <!--TODO: sätta class på hela div-elementet, klassen ska heta "hidden" -->
+        </section>
+
+        <section class="winner-display">
+            <h2>Congratulations!</h2>
+            <div class="overlay-card">
+                <h3>Players Name: </h3>
+                <p>Wrong guesses: </p>
+                <p>Word length: </p>
+                <p>date and time: </p>
+            </div>
+        </section>
+
+        <section class="loser-display">
+            <h2>Too bad! Better luck next time!</h2>
+            <div class="overlay-card">
+                <h3>Players Name: </h3>
+                <p>Wrong guesses: </p>
+                <p>Word length: </p>
+                <p>date and time: </p>
+            </div>
+        </section>
+    </main>
 </body>
+
 </html>
