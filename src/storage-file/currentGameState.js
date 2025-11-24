@@ -2,6 +2,7 @@ const gameState = {
     currentWord: "",
     currentLetterArray: [],
     guessedLetters: new Set(),
+    guessedWords: new Set(),
     correctGuessCount: 0,
     mistakes: 0,
     maxMistakes: 6
@@ -13,8 +14,9 @@ function resetGameState() {
     gameState.currentWord = "";
     gameState.currentLetterArray = [];
     gameState.guessedLetters = new Set();
-    gameState.mistakes = 0;
+    gameState.guessedWords = new Set(),
     gameState.correctGuessCount = 0;
+    gameState.mistakes = 0;
 }
 
 function setWord(word) {

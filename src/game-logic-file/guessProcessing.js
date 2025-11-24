@@ -1,71 +1,52 @@
 import { gameState } from '../storage-file/currentGameState.js'
 import { revealLetter, showWin, showLose, mistakeDisplay } from './ui.js'
-import {winGame, loseGame} from 'gameEnding.js'
-
-
-function getLetterPositions(letter) {
-    let array = [];
-    gameState.currentLetterArray.forEach((l, index) => {
-        if (l === letter) array.push(index);
-    });
-    return array;
-}
 
 function processLetter(letter) {
-    const positions = getLetterPositions(letter);    
-    if (positions.length > 0) {
-        positions.forEach(pos => {
-            revealLetter(pos)
+    let falseGuess = true;
+
+    gameState.currentLetterArray.forEach((arrayLetter, index) => {
+        if(arrayLetter === letter) {
             gameState.correctGuessCount++
-        });
-        return true
-    } else {
+            revealLetter(index)
+            falseGuess = false
+        }
+    })
+    if (falseGuess) {
+        mistakeDisplay(letter)
         gameState.mistakes++
-        return false   
-    } 
- }
+    }
+}
 
 function processWord(word) {
     if (word === gameState.currentWord) {
         gameState.currentLetterArray.forEach((_, i) => revealLetter(i));
         gameState.correctGuessCount = gameState.currentWord.length;
-        return true
-    } else {
-        gameState.mistakes++
-        return false 
+        return
     }
+    mistakeDisplay('')
+    gameState.mistakes++
 }
 
-function wrongGuess(guess) {
+function checkGuess (guess) {
 
-    if (guess.length === 1) {
-        mistakeDisplay(guess)
-    } else {
-        mistakeDisplay('')
+    //get the logic of word or letter here
+    if (guess.length === gameState.currentWord.length) {
+        processWord(guess)
+        gameState.guessedWords.add(guess)
     }
-
-    if (gameState.mistakes >= gameState.maxMistakes) {
-        loseGame()
-    }
-}
-
-function rightGuess () {
-    if (gameState.correctGuessCount >= gameState.currentWord.length) {
-        winGame()
-    }
-}
-
-function checkGuess (guess, type) {
-    let isCorrect
-
-    if (type === 'word') isCorrect = processWord(guess)
-    if (type === 'letter') {
-        isCorrect = processLetter(guess)
+    else if (guess.length === 1) {
+        processLetter(guess)
         gameState.guessedLetters.add(guess)
+    } else {
+        console.warn('unexpected word length')
+    }    
+        //check if you've lost
+    if (gameState.mistakes >= gameState.maxMistakes) {
+            showLose()
+        }
+    //check if you've won
+    if (gameState.correctGuessCount >= gameState.currentWord.length) {
+        showWin()
     }
-
-    if (isCorrect) rightGuess()
-    else wrongGuess(guess)
 }
-
 export { checkGuess }
