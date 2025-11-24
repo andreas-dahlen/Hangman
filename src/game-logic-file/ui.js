@@ -1,13 +1,11 @@
-//show error, revealLetter, showWin, showLose
-
-import { gameState } from '../storage-file/currentGameState.js'
-
+//shows a letter
 function revealLetter(index) {
     const slots = document.querySelectorAll('.letter-slot')
     const slot = slots[index]
     slot.querySelector('.individual-letter').classList.remove('hidden');
 }
 
+//shows error message
 function showError(message) {
     const box = document.querySelector(".error-msg");
 
@@ -18,9 +16,10 @@ function showError(message) {
     
     window._errorTimeout = setTimeout(() => {
         box.classList.add("hidden");
-    }, 2000);
+    }, 4000);
 }
 
+//puts words in the mistakeDisplay
 function mistakeDisplay(input) {
 
     const container = document.createElement('div')
@@ -50,7 +49,7 @@ function mistakeDisplay(input) {
 }
 
 function showLose() {
-    
+    alert('YOU LOSE!')
 }       
 
 export {revealLetter, showError, showWin, showLose, mistakeDisplay}

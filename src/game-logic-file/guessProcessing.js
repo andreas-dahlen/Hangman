@@ -1,5 +1,6 @@
 import { gameState } from '../storage-file/currentGameState.js'
 import { revealLetter, showWin, showLose, mistakeDisplay } from './ui.js'
+import {winGame, loseGame} from 'gameEnding.js'
 
 
 function getLetterPositions(letter) {
@@ -9,6 +10,7 @@ function getLetterPositions(letter) {
     });
     return array;
 }
+
 function processLetter(letter) {
     const positions = getLetterPositions(letter);    
     if (positions.length > 0) {
@@ -64,15 +66,6 @@ function checkGuess (guess, type) {
 
     if (isCorrect) rightGuess()
     else wrongGuess(guess)
-}
-
-function loseGame() {
-    showLose(gameState.currentWord)
-    console.log('you lost')
-}
-function winGame() {
-    showWin(gameState.currentWord);
-    console.log('you won')
 }
 
 export { checkGuess }
