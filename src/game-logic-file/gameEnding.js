@@ -8,3 +8,7 @@ function winGame() {
     showWin(gameState.currentWord);
     console.log('you won')
 }
+
+export {
+    loseGame, winGame,
+}

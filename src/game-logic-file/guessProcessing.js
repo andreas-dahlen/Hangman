@@ -1,6 +1,6 @@
 import { gameState } from '../storage-file/currentGameState.js'
 import { revealLetter, showWin, showLose, mistakeDisplay } from './ui.js'
-import {winGame, loseGame} from 'gameEnding.js'
+import {winGame, loseGame} from './gameEnding.js'
 
 
 function getLetterPositions(letter) {
