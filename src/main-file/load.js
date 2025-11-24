@@ -5,11 +5,13 @@
 import { gameState, resetGameState, setWord } from "../storage-file/currentGameState.js";
 import { wordList } from "../storage-file/wordList.js";
 
+//generates a random word
 function getRandomWord() {
     const word = wordList[Math.floor(Math.random() * wordList.length)].toLowerCase().trim()
     return word
 }
 
+//creates 1 div element with 2 p elements inside (1 letter in the word)
 function createLetterSlot(letter, index) {
     const divElement = document.createElement('div');
         divElement.classList.add('letter-slot');
@@ -29,6 +31,7 @@ function createLetterSlot(letter, index) {
         return divElement
 }
 
+//calls the function above to generate all div elements for word display
 function gameLetterDisplay() {
     const letterArray = gameState.currentLetterArray;
     const display = document.querySelector('.game-letter-display')
@@ -40,6 +43,7 @@ function gameLetterDisplay() {
     })
 }
 
+//resets and starts the game
 function newGame() {
     resetGameState()
     const word = getRandomWord()
@@ -48,13 +52,3 @@ function newGame() {
 }
 
 export { newGame }
-
-// const button = document.querySelector('button')
-// const wordParagraph = document.createElement('p')
-   
-//     button.addEventListener('click', () => {
-//         const word = randomWord()
-//         const wordParagraph = document.createElement('p')
-// wordParagraph.textContent = word;
-// document.body.appendChild(wordParagraph);
-// })

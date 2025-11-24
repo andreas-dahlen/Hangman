@@ -5,6 +5,8 @@ const gameState = {
     correctGuessCount: 0,
     mistakes: 0,
     maxMistakes: 6
+    //TODO: could have current user 
+    //TODO: could have a variable in the end if you won or lost
 };
 
 function resetGameState() {

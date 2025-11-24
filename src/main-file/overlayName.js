@@ -18,6 +18,8 @@ startButton.addEventListener('click', () => {
     error.hidden = false;
     return;
   }
+
+  //TODO: lägg till addEventListener med ENTER
   
   overlayNameDisplay.classList.toggle('hide');
   localStorage.setItem("namn", name); 
