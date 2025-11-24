@@ -2,15 +2,12 @@
 import './overlayName.js';
 //Den här ska kanske vara lite mer specifik? importera vadå från overlayName.js?
 
-import { gameLetterDisplay, newWordArray, currentLetterArray, currentWord } from './load.js';
-import { guessController} from '../game-logic-file/guessing.js';
+import { newGame } from './load.js';
+import { guessController } from '../game-logic-file/guessMain.js';
+// import { guessController} from '../game-logic-file/guessMain.js';
 
-newWordArray()
-gameLetterDisplay()
-console.log(currentWord)
-
+newGame()
 guessController()
-
 //när användaren har skapats.
 
 //generera ett ord. 

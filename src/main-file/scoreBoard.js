@@ -2,7 +2,7 @@ export function populateScoreboard() {
 
   const nameElement = document.getElementById("scoreBoardName"); 
 
-  console.log(window.localStorage.getItem('namn'));
+  console.log('current player: ', window.localStorage.getItem('namn'));
 
   let nameFromStorage =  window.localStorage.getItem('namn');
 
