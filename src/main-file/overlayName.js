@@ -2,7 +2,8 @@
 import { setUser } from '../storage-file/currentGameState.js';
 import { populateScoreboard } from './scoreBoard.js';
 const startButton = document.getElementById("startButton");
-// const overlayName = document.getElementById("overlay-name")
+// const overlayName = document.getElementById("overlay-name") // vad gör denna?
+
 const nameInput = document.getElementById("nameInput");
 const error = document.getElementById("error");
 

@@ -1,29 +1,51 @@
-export function populateScoreboard() {
 
-  const nameElement = document.getElementById("scoreBoardName"); 
+// TODO: 2 den ska innehålla: namn 
+// TODO:3 listan ska innehålla: 10 cards som visar de 10 bästa spelarna
+// TODO: 4 kunna gå in på scoreborden genom att trycka på en menylängst upp till höger
+// TODO: 5 det ska gå att sortera på tid eller datum 
+// TODO: lagra i local storage
 
-  console.log('current player: ', window.localStorage.getItem('namn'));
 
-  let nameFromStorage =  window.localStorage.getItem('namn');
+import { gameState } from '../storage-file/currentGameState.js';
 
-  //window = går till förnstret för att se,localStorage = peckar på vårt localStorage
-  //getItem = hämta item, ('namn') = nyckeln/key (som vi får via en sträng)
-  //JASON parse = Jason för att se datan korrekt , parce = konfigurerar en existerande strän till en  datastruktur
+export function infoToScoreBoard(winner) {
+
+  const scoreBoardName = document.querySelector('.scoreBoardName');
+  const scoreBoardGuesses = document.querySelector('.scoreBoard-guesses');
+  const scoreBoardWordlength = document.querySelector('.scoreBoard-word-length');
+  const scoreBoardTime = document.querySelector('.scoreBoard-time');
+  const scoreBoardDate = document.querySelector('.scoreBoard-date');
+  const scoreBoardStatus = document.querySelector('.scoreBoard-status');
+
+  console.log(gameState.guessedLetters)
+
+  scoreBoardGuesses.innerText = 'Guesses: ' + gameState.guessedLetters.size;
+
+  scoreBoardWordlength.innerText = 'Word length: ' + gameState.currentLetterArray.length;
+
+  let time = new Date();
+
+
+  scoreBoardTime.innerText = 'Time: ' + time.toLocaleTimeString();
+
+  scoreBoardDate.innerText = 'Date: ' + time.toDateString();
+
   
-  //Behöver också lägga till namnet i currentGameState
 
-  if (nameFromStorage) {
-    nameElement.innerText ='Name:' + nameFromStorage;
-
+  if (winner == true) {
+    scoreBoardStatus.innerText = 'Winner!';
+  } else {
+    scoreBoardStatus.innerText = 'You lost..';
   }
 
-  else {
-    nameElement.innerText = 'Name: ' + 'no name found';
-    nameElement.className = 'scoreBoard-name errorName';                  //röd text
-  }
 }
 
 
 
 
+// console.log('hej')
+
+export function populateScoreboard() {
+
+}
 

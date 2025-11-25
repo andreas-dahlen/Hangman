@@ -2,6 +2,7 @@ import { gameState } from '../storage-file/currentGameState.js'
 import { revealLetter, mistakeDisplay } from './ui.js'
 import { hangmanReveal } from './hangManDisplay.js'
 import { showWin, showLose } from '../display-file/overlayUi.js'
+import { infoToScoreBoard } from "../main-file/scoreBoard.js";
 
 function processLetter(letter) {
     let falseGuess = true;
@@ -47,11 +48,18 @@ function checkGuess (guess) {
     //check if you've lost
     if (gameState.mistakes >= gameState.maxMistakes) {
         showLose()
-        //needs to append win to the gameState object
+        //TODO: needs to append win/lose to the gameState object
+            // showLose(gameState.currentWord) TODO: bortkommenterade då den inte är implementerats än. Ta bort denna kommentar när det är gjort!
+            console.log('you lost')
+            infoToScoreBoard(false);
     }
     //check if you've won
     else if (gameState.correctGuessCount >= gameState.currentWord.length) {
         showWin()
+        //TODO: needs to append win/lose to the gameState object
+    // showWin(gameState.currentWord); TODO: bortkommenterade då den inte är implementerats än. Ta bort denna kommentar när det är gjort!
+    console.log('you won')
+    infoToScoreBoard(true);
     }
 }
 export { checkGuess }

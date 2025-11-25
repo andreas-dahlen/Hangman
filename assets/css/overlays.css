@@ -8,8 +8,10 @@ body {
 
 .overlay-backdrop {
   position: fixed;
-  inset: 0;                        /* TODO: vill vi att hela skärmen ska täckas? bestäm när spelvyn är klar*/
-  background: rgba(0,0,0,0.33);  /* TODO: ändra hur genomskinlig bakgrunden ska vara när vi gjort spelvyn*/
+  inset: 0;
+  /* TODO: vill vi att hela skärmen ska täckas? bestäm när spelvyn är klar*/
+  background: rgba(0, 0, 0, 0.33);
+  /* TODO: ändra hur genomskinlig bakgrunden ska vara när vi gjort spelvyn*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +22,7 @@ body {
   padding: 30px;
   width: 340px;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
 
 }
@@ -33,15 +35,20 @@ input {
   margin: 10px 0;
   margin-right: 10px;
   font-size: 16px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
+
 }
 
 .button {
   width: 100%;
   padding: 12px;
-  background: #20a33f; /*TODO: ändra färgerna när vi gjort spelvyn. Passar grön?*/
+  background: #20a33f;
+  /*TODO: ändra färgerna när vi gjort spelvyn. Passar grön?*/
   color: white;
   font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -60,4 +67,5 @@ input {
 
 .hide {
   display: none;
+  /* opasity kan hidra klickbarhet efterson den blir osynlig och inte tas bort från DOM*/
 }
