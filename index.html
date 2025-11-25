@@ -1,116 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hang Man Game</title>
-
-    <link rel="stylesheet" href="./assets/css/index.css">
-    <link rel="stylesheet" href="./assets/css/lose-display.css">
-    <link rel="stylesheet" href="./assets/css/player-creation.css">
-    <link rel="stylesheet" href="./assets/css/win-display.css">
-    <link rel="stylesheet" href="./assets/css/scoreBoard.css">
-    <link rel="stylesheet" href="./assets/css/overlayName.css">
-    <link rel="stylesheet" href="./assets/css/gameDisplay.css">
-
-    <script type="module" src="./src/main-file/main.js"></script>
-
-    <!-- this will only link to one JS file later!!! this is just for some testing xD -->
-
-    <script type="module" src="./src/storage-file/wordList.js"></script>
-    <!-- Link to JS wordlist in wordList.js. /Emma -->
-    
-    <script type="module" src="game-logic-file/rightGuess.js"></script>
-    <!-- Link to JS wordlist in rightGuess.js. /Emma -->
-     
+    <title>Document</title>
 </head>
-
 <body>
-
-    <header>
-        <img src="" alt="">
-        <h1>Hang Man</h1>
-        <nav>Scoreboard</nav>
-    </header>
-
-    <main>
-        <section class="game-view">
-
-            <!-- <div class="change-user"></div> -->
-
-
-            <div>
-                
-                <div class="hangman-display">
-                    <img src="./assets/images/mall.jpg" alt="PLACEHOLDER CURRENTLY!">
-                </div>
-                <div class="wrong-guess-display"></div>
-            </div>
-
-            <div class="guess-result-display"></div>
-
-            <div class="game-letter-display"></div>
-            <p class="error-msg hidden">wrong input</p>
-            <input name="guess-time" type="text" class="guess-bar" placeholder="Guess a letter">
-
-
-
-        </section>
-
-        <!-- <section class="name-creator-display">
-
-        </section> -->
-
-        <section class="overlay-name-display" id="overlayNameDisplay">
-            <div class="overlay-backdrop" id="overlay-name">
-                <div class="overlay-card">
-
-                    <label for="nameInput">Name:</label>
-                    <input type="text" id="nameInput" placeholder="Name your player" />
-
-                    <button id="startButton" class="button">Start game</button>
-
-                    <p id="error" class="error" hidden>Enter a name to continue!</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="scoreboard-display">
-        
-            <h2>Scoreboard</h2>
-            <div class="scoreBoard-name" id="scoreBoardName">Name:
-        
-            </div>
-        
-            <div class="scoreBoard-guesses" id="scoreBoard-guesses">Guesses:</div>
-            <div class="scoreBoard-word-lengt" id="scoreBoard-word-lengt">word lengt:</div>
-            <div class="scoreBoard-time" id="scoreBoard-time">Time:</div>
-            <div class="scoreBoard-date" id="scoreBoard-date">Date:</div>
-            <div class="scoreBoard-status" id="scoreBoard-status">Status:</div>
-        
-        </section>
-
-        <section class="winner-display">
-            <h2>Congratulations!</h2>
-            <div class="overlay-card">
-                <h3>Players Name: </h3>
-                <p>Wrong guesses: </p>
-                <p>Word length: </p>
-                <p>date and time: </p>
-            </div>
-        </section>
-
-        <section class="loser-display">
-            <h2>Too bad! Better luck next time!</h2>
-            <div class="overlay-card">
-                <h3>Players Name: </h3>
-                <p>Wrong guesses: </p>
-                <p>Word length: </p>
-                <p>date and time: </p>
-            </div>
-        </section>
-    </main>
+    
 </body>
-
 </html>
