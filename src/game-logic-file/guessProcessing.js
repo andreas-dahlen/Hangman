@@ -1,5 +1,5 @@
 import { gameState } from '../storage-file/currentGameState.js'
-import { revealLetter, mistakeDisplay } from './ui.js'
+import { revealLetter, mistakeDisplay, guessResultDisplay } from './ui.js'
 import { hangmanReveal } from './hangManDisplay.js'
 import { showWin, showLose } from '../display-file/overlayUi.js'
 import { infoToScoreBoard } from "../main-file/scoreBoard.js";
@@ -18,11 +18,16 @@ function processLetter(letter) {
         hangmanReveal(gameState.mistakes)
         mistakeDisplay(letter)
         gameState.mistakes++
+        guessResultDisplay(false)
+    } else {
+        guessResultDisplay(true)
     }
 }
 
 function processWord(word) {
+
     if (word === gameState.currentWord) {
+        guessResultDisplay(true)
         gameState.currentLetterArray.forEach((_, i) => revealLetter(i));
         gameState.correctGuessCount = gameState.currentWord.length;
         return
@@ -30,6 +35,7 @@ function processWord(word) {
     hangmanReveal()
     mistakeDisplay('')
     gameState.mistakes++
+    guessResultDisplay(false)
 }
 
 function checkGuess (guess) {
@@ -48,18 +54,20 @@ function checkGuess (guess) {
     //check if you've lost
     if (gameState.mistakes >= gameState.maxMistakes) {
         showLose()
+        winState(false)
         //TODO: needs to append win/lose to the gameState object
-            // showLose(gameState.currentWord) TODO: bortkommenterade då den inte är implementerats än. Ta bort denna kommentar när det är gjort!
-            console.log('you lost')
-            infoToScoreBoard(false);
+        // showLose(gameState.currentWord) TODO: bortkommenterade då den inte är implementerats än. Ta bort denna kommentar när det är gjort!
+        console.log(`you lost. ${gameState}`)
+        infoToScoreBoard(false);
     }
     //check if you've won
     else if (gameState.correctGuessCount >= gameState.currentWord.length) {
         showWin()
+        winState(true)
         //TODO: needs to append win/lose to the gameState object
-    // showWin(gameState.currentWord); TODO: bortkommenterade då den inte är implementerats än. Ta bort denna kommentar när det är gjort!
-    console.log('you won')
-    infoToScoreBoard(true);
+        // showWin(gameState.currentWord); TODO: bortkommenterade då den inte är implementerats än. Ta bort denna kommentar när det är gjort!
+        console.log(`you won. ${gameState}`)
+        infoToScoreBoard(true);
     }
 }
 export { checkGuess }

@@ -33,6 +33,13 @@ function setUser(name) {
     gameState.currentUser = name
 }
 
+function winState(state) {
+    if (state)
+    gameState.winState = 'win'
+    else
+        gameState.winState = 'lost'
+}
+
 // function addGuessedLetter(letter) {
 //     gameState.guessedLetters.add(letter);
 // }
@@ -45,5 +52,6 @@ export {
     gameState, 
     resetGameState, 
     setWord, 
-    setUser
+    setUser,
+    winState
 };

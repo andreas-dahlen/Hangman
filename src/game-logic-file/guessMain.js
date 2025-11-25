@@ -22,7 +22,7 @@ function guessController() {
             return
         }
         //guess is valid and will now be checked if it's a mistake or not.
-        checkGuess(guess, check.type)
+        checkGuess(guess)
     })
 }  
 

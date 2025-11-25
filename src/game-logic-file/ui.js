@@ -44,13 +44,28 @@ function mistakeDisplay(input) {
     pos.appendChild(container);
 } 
 
-function guessResultDisplay() {
-    const pos = document.querySelector('.wrong-result-display')
+function guessResultDisplay(state) {
+    const messages = {
+        correct: [
+            'Nice job!',
+            'You good!',
+            'Getting there!',
+            'Awesome!',
+            'Well done!'
+        ],
+        wrong: [
+            'Ooof',
+            'Dang, guess again!',
+            'Pause and think!',
+            'Think before you guess!',
+            'Better luck next guess!'
+        ]
+    };
 
-    const pElement = document.createElement('p')
-    
-
-
+    const pElement = document.querySelector('.guess-message');
+    const selectedArray = state ? messages.correct : messages.wrong;
+    const randomMessage = selectedArray[Math.floor(Math.random() * selectedArray.length)];
+    pElement.textContent = randomMessage;
 }
 
-export {revealLetter, showError, mistakeDisplay}
+export {revealLetter, showError, mistakeDisplay, guessResultDisplay}

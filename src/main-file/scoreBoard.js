@@ -5,6 +5,10 @@
 // TODO: 5 det ska gå att sortera på tid eller datum 
 // TODO: lagra i local storage
 
+//TODO: IMPORTANT INFO FROM ANDREAS! 
+// gameState.currentUser is available! 
+// gameState.winState is available!
+//TODO:IMPORNTANT INFO FROM ANDREAS!
 
 import { gameState } from '../storage-file/currentGameState.js';
 
