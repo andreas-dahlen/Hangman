@@ -10,6 +10,8 @@ export function populateScoreboard() {
   //getItem = hämta item, ('namn') = nyckeln/key (som vi får via en sträng)
   //JASON parse = Jason för att se datan korrekt , parce = konfigurerar en existerande strän till en  datastruktur
   
+  //Behöver också lägga till namnet i currentGameState
+
   if (nameFromStorage) {
     nameElement.innerText ='Name:' + nameFromStorage;
 

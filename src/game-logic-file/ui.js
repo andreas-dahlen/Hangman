@@ -42,14 +42,15 @@ function mistakeDisplay(input) {
     }
 
     pos.appendChild(container);
+} 
+
+function guessResultDisplay() {
+    const pos = document.querySelector('.wrong-result-display')
+
+    const pElement = document.createElement('p')
+    
+
+
 }
 
- function showWin() {
-    alert("YOU WIN!");
-}
-
-function showLose() {
-    alert('YOU LOSE!')
-}       
-
-export {revealLetter, showError, showWin, showLose, mistakeDisplay}
+export {revealLetter, showError, mistakeDisplay}
