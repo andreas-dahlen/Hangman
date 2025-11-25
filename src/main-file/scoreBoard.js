@@ -1,48 +1,51 @@
-export function populateScoreboard() {
 
-  const nameEl = document.getElementById("scoreBoardName");
-  const guessesEl = document.getElementById("scoreBoard-guesses");
-  const wordLengthEl = document.getElementById("scoreBoard-word-lengt");
-  const dateEl = document.getElementById("scoreBoard-date");
-  const statusEl = document.getElementById("scoreBoard-status");
+// TODO: 2 den ska innehålla: namn 
+// TODO:3 listan ska innehålla: 10 cards som visar de 10 bästa spelarna
+// TODO: 4 kunna gå in på scoreborden genom att trycka på en menylängst upp till höger
+// TODO: 5 det ska gå att sortera på tid eller datum 
+// TODO: lagra i local storage
 
-  const nameFromStorage = localStorage.getItem("namn");
+
+import { gameState } from '../storage-file/currentGameState.js';
+
+export function infoToScoreBoard(winner) {
+
+  const scoreBoardName = document.querySelector('.scoreBoardName');
+  const scoreBoardGuesses = document.querySelector('.scoreBoard-guesses');
+  const scoreBoardWordlength = document.querySelector('.scoreBoard-word-length');
+  const scoreBoardTime = document.querySelector('.scoreBoard-time');
+  const scoreBoardDate = document.querySelector('.scoreBoard-date');
+  const scoreBoardStatus = document.querySelector('.scoreBoard-status');
+
+  console.log(gameState.guessedLetters)
+
+  scoreBoardGuesses.innerText = 'Guesses: ' + gameState.guessedLetters.size;
+
+  scoreBoardWordlength.innerText = 'Word length: ' + gameState.currentLetterArray.length;
+
+  let time = new Date();
+
+
+  scoreBoardTime.innerText = 'Time: ' + time.toLocaleTimeString();
+
+  scoreBoardDate.innerText = 'Date: ' + time.toDateString();
 
   
-  const scoreBoard = JSON.parse(localStorage.getItem("scoreBoard")) || [];        // Hämta tidigare sparade resultat
 
-
-  if (scoreBoard.length > 0) {                                                    // Om det finns resultat
-
-    const latestScore = scoreBoard[scoreBoard.length - 1];
-
-    nameEl.innerText = "Name: " + latestScore.name;
-    guessesEl.innerText = "Guesses: " + latestScore.guesses;
-    wordLengthEl.innerText = "Word length: " + latestScore.wordLength;
-    dateEl.innerText = "Date: " + latestScore.date;
-    statusEl.innerText = "Status: " + latestScore.status;
+  if (winner == true) {
+    scoreBoardStatus.innerText = 'Winner!';
+  } else {
+    scoreBoardStatus.innerText = 'You lost..';
   }
-  else {
-    nameEl.innerText = "Name: " + (nameFromStorage || "no name found");
-    guessesEl.innerText = "Guesses: -";
-    wordLengthEl.innerText = "Word length: -";
-    dateEl.innerText = "Date: -";
-    statusEl.innerText = "Status: -";
-  }
+
 }
 
-//kalla på funktionen när spelet är slut.. VAR??
-// import { populateScoreboard } from "../scoreBoard-file/scoreBoard.js";
-
-// function winGameResult() {
-//   saveScore();
-//   populateScoreboard();
-// }
-
-// function loseGameResult() {
-//   saveScore();
-//   populateScoreboard();
-// }
 
 
-// TODO: gör en lop för att kunna skapa en lista!!
+
+// console.log('hej')
+
+export function populateScoreboard() {
+
+}
+
