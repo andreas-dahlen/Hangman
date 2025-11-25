@@ -1,7 +1,8 @@
 
+import { setUser } from '../storage-file/currentGameState.js';
 import { populateScoreboard } from './scoreBoard.js';
 const startButton = document.getElementById("startButton");
-const overlayName = document.getElementById("overlay-name")
+// const overlayName = document.getElementById("overlay-name")
 const nameInput = document.getElementById("nameInput");
 const error = document.getElementById("error");
 
@@ -20,7 +21,7 @@ startButton.addEventListener('click', () => {
   }
 
   //TODO: lägg till addEventListener med ENTER
-  
+  setUser(name)
   overlayNameDisplay.classList.toggle('hide');
   localStorage.setItem("namn", name); 
   populateScoreboard();

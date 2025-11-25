@@ -23,7 +23,6 @@ function createLetterSlot(letter, index) {
         const letterElement = document.createElement('p')
         letterElement.classList.add('individual-letter', 'hidden')
         letterElement.textContent = letter
-        letterElement.dataset.index = index
 
         divElement.appendChild(underscoreElement)
         divElement.appendChild(letterElement)

@@ -7,7 +7,7 @@ import { showError } from "./ui.js";
 
 //main function
 function guessController() {
-const guessInput = document.querySelector(".guess-bar");
+    const guessInput = document.querySelector(".guess-bar");
 
     guessInput.addEventListener('keydown', (e) => {
         if (e.key !== 'Enter') return
@@ -21,7 +21,7 @@ const guessInput = document.querySelector(".guess-bar");
             showError(check.message)
             return
         }
-        
+        //guess is valid and will now be checked if it's a mistake or not.
         checkGuess(guess, check.type)
     })
 }  

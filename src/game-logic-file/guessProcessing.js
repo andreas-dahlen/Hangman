@@ -1,5 +1,7 @@
 import { gameState } from '../storage-file/currentGameState.js'
-import { revealLetter, showWin, showLose, mistakeDisplay } from './ui.js'
+import { revealLetter, mistakeDisplay } from './ui.js'
+import { hangmanReveal } from './hangManDisplay.js'
+import { showWin, showLose } from '../display-file/overlayUi.js'
 
 function processLetter(letter) {
     let falseGuess = true;
@@ -12,6 +14,7 @@ function processLetter(letter) {
         }
     })
     if (falseGuess) {
+        hangmanReveal(gameState.mistakes)
         mistakeDisplay(letter)
         gameState.mistakes++
     }
@@ -23,6 +26,7 @@ function processWord(word) {
         gameState.correctGuessCount = gameState.currentWord.length;
         return
     }
+    hangmanReveal()
     mistakeDisplay('')
     gameState.mistakes++
 }
@@ -40,12 +44,13 @@ function checkGuess (guess) {
     } else {
         console.warn('unexpected word length')
     }    
-        //check if you've lost
+    //check if you've lost
     if (gameState.mistakes >= gameState.maxMistakes) {
-            showLose()
-        }
+        showLose()
+        //needs to append win to the gameState object
+    }
     //check if you've won
-    if (gameState.correctGuessCount >= gameState.currentWord.length) {
+    else if (gameState.correctGuessCount >= gameState.currentWord.length) {
         showWin()
     }
 }

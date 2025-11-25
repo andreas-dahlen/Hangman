@@ -1,12 +1,14 @@
 const gameState = {
-    currentWord: "",
+    currentWord: '',
     currentLetterArray: [],
     guessedLetters: new Set(),
     guessedWords: new Set(),
     correctGuessCount: 0,
     mistakes: 0,
-    maxMistakes: 6
-    //TODO: could have current user 
+    maxMistakes: 6,
+    currentUser: '',
+    winState: '',
+
     //TODO: could have a variable in the end if you won or lost
 };
 
@@ -17,11 +19,18 @@ function resetGameState() {
     gameState.guessedWords = new Set(),
     gameState.correctGuessCount = 0;
     gameState.mistakes = 0;
+    gameState.maxMistakes = 6;
+    gameState.currentUser = setUser();
+    gameState.winState = ''
 }
 
 function setWord(word) {
     gameState.currentWord = word;
     gameState.currentLetterArray = [...word];
+}
+
+function setUser(name) {
+    gameState.currentUser = name
 }
 
 // function addGuessedLetter(letter) {
@@ -36,6 +45,5 @@ export {
     gameState, 
     resetGameState, 
     setWord, 
-    // addGuessedLetter, 
-    // addMistake 
+    setUser
 };
