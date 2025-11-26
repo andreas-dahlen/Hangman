@@ -66,6 +66,7 @@ function guessResultDisplay(state) {
     const selectedArray = state ? messages.correct : messages.wrong;
     const randomMessage = selectedArray[Math.floor(Math.random() * selectedArray.length)];
     pElement.textContent = randomMessage;
+    //TODO: TIMER FUNKTION!
 }
 
 export {revealLetter, showError, mistakeDisplay, guessResultDisplay}
