@@ -2,10 +2,10 @@
 
 import { validateInput } from "./validateGuess.js";
 import { checkGuess } from "./guessProcessing.js";
-import { showError } from "./ui.js";
+import { showError } from "./domCreator.js";
 
 
-//main function
+//controls the logical steps
 function guessController() {
     const guessInput = document.querySelector(".guess-bar");
 

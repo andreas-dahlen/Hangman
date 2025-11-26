@@ -1,11 +1,22 @@
- function showWin() {
-    alert("YOU WIN!");
-    //TODO: behöver köra funktion i overlayDecider
+ function updateWin() {
+ //Emma?
+ console.log('updateLose!')
 }
 
-function showLose() {
-    alert('YOU LOSE!')
-    //TODO: behöver köra funktion i overlayDecider
+function updateLose() {
+//Emma?
+console.log('updateLose!')
 }      
 
-export {showLose, showWin}
+function showScoreBoard() {
+    leaderboard.sort((a, b) => {
+    // 1. Sort by score (higher is better)
+    if (b.score !== a.score) {
+        return b.score - a.score;
+    }
+    // 2. Tie-break by accuracy
+    return b.accuracy - a.accuracy;
+});
+}
+
+export {updateLose, updateWin}

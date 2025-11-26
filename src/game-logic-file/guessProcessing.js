@@ -1,8 +1,9 @@
-import { gameState } from '../storage-file/currentGameState.js'
-import { revealLetter, mistakeDisplay, guessResultDisplay } from './ui.js'
+import { gameState, winState } from '../storage-file/currentGameState.js'
+import { revealLetter, mistakeDisplay, guessResultDisplay } from './domCreator.js'
 import { hangmanReveal } from './hangManDisplay.js'
-import { showWin, showLose } from '../display-file/overlayUi.js'
-import { infoToScoreBoard } from "../main-file/scoreBoard.js";
+import { updateWin, updateLose } from '../display-file/overlayUi.js'
+import { infoToScoreBoard } from "../storage-file/scoreBoardDomCreator.js";
+import { showOverlay } from '../display-file/overlayDecider.js'
 
 function processLetter(letter) {
     let falseGuess = true;
@@ -28,15 +29,18 @@ function processWord(word) {
 
     if (word === gameState.currentWord) {
         guessResultDisplay(true)
+
         gameState.currentLetterArray.forEach((_, i) => revealLetter(i));
         gameState.correctGuessCount = gameState.currentWord.length;
         return
     }
-    hangmanReveal()
+    hangmanReveal(gameState.mistakes)
     mistakeDisplay('')
     gameState.mistakes++
     guessResultDisplay(false)
 }
+
+//make a hint process... gives a mistake and reveals a letter
 
 function checkGuess (guess) {
 
@@ -53,21 +57,21 @@ function checkGuess (guess) {
     }    
     //check if you've lost
     if (gameState.mistakes >= gameState.maxMistakes) {
-        showLose()
+        updateLose()
+        showOverlay('loser')
         winState(false)
-        //TODO: needs to append win/lose to the gameState object
-        // showLose(gameState.currentWord) TODO: bortkommenterade då den inte är implementerats än. Ta bort denna kommentar när det är gjort!
-        console.log(`you lost. ${gameState}`)
-        infoToScoreBoard(false);
+        console.log(`you lost.`)
+        infoToScoreBoard();
+    //TODO: appendToStorage "functionname"()
     }
     //check if you've won
     else if (gameState.correctGuessCount >= gameState.currentWord.length) {
-        showWin()
+        updateWin()
+        showOverlay('winner')
         winState(true)
-        //TODO: needs to append win/lose to the gameState object
-        // showWin(gameState.currentWord); TODO: bortkommenterade då den inte är implementerats än. Ta bort denna kommentar när det är gjort!
-        console.log(`you won. ${gameState}`)
-        infoToScoreBoard(true);
+        console.log(`you won.`)
+        infoToScoreBoard();
+    //TODO: AppendToStorage "functionname"()
     }
 }
 export { checkGuess }

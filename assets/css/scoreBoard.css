@@ -12,43 +12,8 @@
   height: 25em;
 }
 
-.scoreBoard-name {
-  border: 1px solid rgb(13, 135, 242);
-  border-radius: 10px;
-  margin: 5px;
-  padding: 3px;
-}
-
-.scoreBoard-guesses {
-  border: 1px solid rgb(13, 135, 242);
-  border-radius: 10px;
-  margin: 5px;
-  padding: 3px;
-}
-
-.scoreBoard-word-length {
-  border: 1px solid rgb(13, 135, 242);
-  border-radius: 10px;
-  margin: 5px;
-  padding: 3px;
-}
-
-.scoreBoard-time {
-  border: 1px solid rgb(13, 135, 242);
-  border-radius: 10px;
-  margin: 5px;
-  padding: 3px;
-}
-
-.scoreBoard-date {
-  border: 1px solid rgb(13, 135, 242);
-  border-radius: 10px;
-  margin: 5px;
-  padding: 3px;
-}
-
-.scoreBoard-status {
-  border: 1px solid rgb(13, 135, 242);
+.scoreboard-display > div {
+    border: 1px solid rgb(13, 135, 242);
   border-radius: 10px;
   margin: 5px;
   padding: 3px;

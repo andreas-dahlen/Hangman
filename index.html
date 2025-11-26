@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hang Man Game</title>
 
-    <link rel="stylesheet" href="./assets/css/player-creation.css">
+    <link rel="stylesheet" href="./assets/css/global.css">
     <link rel="stylesheet" href="./assets/css/scoreBoard.css">
     <link rel="stylesheet" href="./assets/css/gameDisplay.css">
-    <link rel="stylesheet" href="./assets/css/overlays.css">
+    <link rel="stylesheet" href="./assets/css/forAllOverlays.css">
     <link rel="stylesheet" href="./assets/css/header.css">
 
     <script type="module" src="./src/main-file/main.js"></script>
@@ -18,32 +18,32 @@
 
 <body>
 
-    <!-- <header>
+    <header>
         <img src="" alt="">
         <h1>Hang Man</h1>
-        <nav>Scoreboard</nav>
-    </header> -->
+        <nav class="score-board-button">Scoreboard</nav>
+    </header>
 
     <main>
         <section class="game-view">
 
             <!-- <div class="change-user"></div> -->
 
+            <div class="guess-result-display">
+                <h2 class="guess-message"></h2>
+            </div>
 
-            <div>
-                
+            <div>   
                 <div class="hangman-display">
                     <img src="./assets/images/mall.jpg" alt="PLACEHOLDER CURRENTLY!">
                 </div>
                 <div class="wrong-guess-display"></div>
             </div>
 
-            <div class="guess-result-display">
-                <h2 class="guess-message"></h2>
-            </div>
-
             <div class="game-letter-display"></div>
+
             <p class="error-msg hidden">wrong input</p>
+
             <input name="guess-time" type="text" class="guess-bar" placeholder="Guess a letter">
 
 
@@ -55,7 +55,7 @@
         </section> -->
 
         <section class="overlay-name-display" id="overlayNameDisplay">
-            <div class="overlay-backdrop" id="overlay-name">
+            <div class="overlay-backdrop">
                 <div class="overlay-card">
 
                     <label for="nameInput">Name:</label>
@@ -71,33 +71,41 @@
         <section class="scoreboard-display">
         
             <h2>Scoreboard</h2>
-            <div class="scoreBoard-name">Name:</div>
+            <div class="scoreboard-name">Name:</div>
         <!-- ta bort id? ska jag använda camelcase så det blir rätt i js? -->
-            <div class="scoreBoard-guesses">Guesses:</div>
-            <div class="scoreBoard-word-length">word lengt:</div>
-            <div class="scoreBoard-time">Time:</div>
-            <div class="scoreBoard-date">Date:</div>
-            <div class="scoreBoard-status">Status:</div>
+            <div class="scoreboard-guesses">Guesses:</div>
+            <div class="scoreboard-word-length">word lengt:</div>
+            <div class="scoreboard-time">Time:</div>
+            <div class="scoreboard-date">Date:</div>
+            <div class="scoreboard-status">Status:</div>
         
         </section>
 
         <section class="winner-display">
-            <h2>Congratulations!</h2>
+            <h2>Congratulations! player, you won!</h2> 
+            <!-- innehållet i NÄSTAN ALLT borde komma från JS -->
+             <!-- player är gameState:currentUser -->
             <div class="overlay-card">
-                <h3>Players Name: </h3>
+                <h3 id="correct-word"></h3>
                 <p>Wrong guesses: </p>
-                <p>Word length: </p>
-                <p>date and time: </p>
+                <!-- om man vill kan man ha accuracy och score -->
+                <!--button till scoreboard-->
+                <!--button till nytt spel med startNewGameButton-->
+                <!-- Alla knappar finns i filen buttons.js-->
             </div>
         </section>
 
         <section class="loser-display">
-            <h2>Too bad! Better luck next time!</h2>
+            <h2>You lose! Better luck next time player! </h2>
+            <!-- innehållet i NÄSTAN ALLT borde komma från JS -->
+             <!-- player är gameState:currentUser -->
             <div class="overlay-card">
-                <h3>Players Name: </h3>
+                <h3 id="correct-word"></h3>
                 <p>Wrong guesses: </p>
-                <p>Word length: </p>
-                <p>date and time: </p>
+                <!-- om man vill kan man ha accuracy och score -->
+                <!--button till scoreboard med klassen score-board-button-->
+                <!--button till nytt spel med klassen new-game-button-->
+                <!-- Alla knappar finns i filen buttons.js-->
             </div>
         </section>
     </main>

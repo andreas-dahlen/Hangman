@@ -2,8 +2,11 @@
 
 //väljer ut ett random ord i Arrayn
 
-import { gameState, resetGameState, setWord } from "../storage-file/currentGameState.js";
+import { gameState, resetGameState, setWord, timeAndDate } from "../storage-file/currentGameState.js";
+//importera även timeLog
 import { wordList } from "../storage-file/wordList.js";
+import { showOverlay} from "../display-file/overlayDecider.js"
+import { scoreBoardButton } from './buttons.js'
 
 //generates a random word
 function getRandomWord() {
@@ -42,12 +45,20 @@ function gameLetterDisplay() {
     })
 }
 
+function loadEventListeners() {
+    scoreBoardButton()
+
+}
+
 //resets and starts the game
 function newGame() {
     resetGameState()
     const word = getRandomWord()
     setWord(word)
     gameLetterDisplay()
+    timeAndDate()
+    showOverlay('name')
+    //TODO: showOeverlay(name) Bör bara köras i början och sedan om man vill byta användare kör man den med button
 }
 
-export { newGame }
+export { newGame, loadEventListeners }

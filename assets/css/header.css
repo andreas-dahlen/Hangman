@@ -2,3 +2,9 @@ header {
     display: flex;
     flex-direction: row;    
 }
+
+.score-board-button {
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+}

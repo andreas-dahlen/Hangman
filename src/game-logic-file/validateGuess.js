@@ -2,7 +2,6 @@ import { gameState } from '../storage-file/currentGameState.js'
 
 
 function validateInput(guess) {
-    //could seperate into letter guess cases and then word guess cases.
     
     if (gameState.guessedLetters.has(guess) || gameState.guessedWords.has(guess))
         return { valid: false, message: "You have already guessed that!"}
