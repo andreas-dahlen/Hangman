@@ -1,6 +1,6 @@
 const overlays = {
-  name: document.querySelector('.overlay-name-display'), //TODO: är detta rätt adress att hämta från??
-  scoreboard: document.querySelector('.scoreboard-display'), //TODO: är detta rätt adress att hämta från
+  name: document.querySelector('.overlay-name-display'),
+  scoreboard: document.querySelector('.scoreboard-display'),
   winner: document.querySelector('.winner-display'),
   loser: document.querySelector('.loser-display')
 };

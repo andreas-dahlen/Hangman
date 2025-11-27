@@ -19,12 +19,13 @@ const error = document.querySelector('#error');
 // const overlayNameDisplay = document.getElementById("overlayNameDisplay")
 
 startButton.addEventListener('click', () => {
- 
   const name = nameInput.value.trim();
 
 
   if (!name) {
-    error.hidden = false;
+    error.classList.remove('hidden')
+    // error.hidden = false;
+    //TODO: ANDREAS lägg till en timer.
     return;
   }
 

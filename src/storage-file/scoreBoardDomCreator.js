@@ -7,7 +7,7 @@ import { loadScoreboard } from './loadFromStorage.js';
 
 function infoToScoreBoard(index) {
 
-  const position = document.querySelector('.scoreboard-display')
+  const position = document.querySelector('.scoreboard-dom')
 
   const container = document.createElement('div')
   container.classList.add('scoreboard-players')

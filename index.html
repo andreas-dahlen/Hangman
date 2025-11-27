@@ -8,10 +8,9 @@
 
     <link rel="stylesheet" href="./assets/css/global.css">
     <link rel="stylesheet" href="./assets/css/scoreBoard.css">
-    <link rel="stylesheet" href="./assets/css/gameDisplay.css">
     <link rel="stylesheet" href="./assets/css/forAllOverlays.css">
     <link rel="stylesheet" href="./assets/css/header.css">
-
+    <link rel="stylesheet" href="./assets/css/gameDisplay.css">
     <script type="module" src="./src/main-file/main.js"></script>
 
 </head>
@@ -19,7 +18,7 @@
 <body>
 
     <header>
-        <img src="" alt="">
+        <img src="./assets/images/mall.jpg" alt="ss">
         <h1>Hang Man</h1>
         <nav class="score-board-button">
             <span> Scoreboard</span>
@@ -27,7 +26,7 @@
     </header>
 
     <main>
-        <section class="game-view">
+        <section>
 
             <!-- <div class="change-user"></div> -->
 
@@ -35,16 +34,19 @@
                 <h2 class="guess-message"></h2>
             </div>
 
-            <div>   
+            <div class="game-view">
+                <div class="spacer"></div>
+
                 <div class="hangman-display">
-                    <img src="./assets/images/mall.jpg" alt="PLACEHOLDER CURRENTLY!">
+                    <img src="./assets/images/western-theme.jpg" alt="">
                 </div>
+
                 <div class="wrong-guess-display"></div>
             </div>
 
             <div class="game-letter-display"></div>
 
-            <p class="error-msg hidden">wrong input</p>
+            <p id="input-error" class="error-msg hidden" ></p>
 
             <input name="guess-time" type="text" class="guess-bar" placeholder="Guess a letter">
 
@@ -56,7 +58,7 @@
 
         </section> -->
 
-        <section class="overlay-name-display" id="overlayNameDisplay">
+        <section class="overlay-name-display">
             <div class="overlay-backdrop">
                 <div class="overlay-card">
 
@@ -65,48 +67,55 @@
 
                     <button id="startButton" class="button">Start game</button>
 
-                    <p id="error" class="error-msg" hidden>Enter a name to continue!</p>
+                    <p id="error" class="error-msg hidden">Enter a name to continue!</p>
                 </div>
             </div>
         </section>
 
         <section class="scoreboard-display">
-        
-            <h2>Scoreboard</h2>
-            <div class="scoreboard-players">
-                <!-- <h3 class="scoreboard-name">Name:</h3>
-                <p class="scoreboard-word-length">word lengt:</p>
-                <p class="scoreboard-time">Time:</p>
-                <p class="scoreboard-date">Date:</p>
-                <p class="scoreboard-result">result:</p> -->
+            <div class="overlay-backdrop">
+                <div class="overlay-card"> 
+                    <h2>Scoreboard</h2>
+                        <div class="scoreboard-dom">
+                    <!-- <h3 class="scoreboard-name">Name:</h3>
+                            <p class="scoreboard-word-length">word lengt:</p>
+                            <p class="scoreboard-time">Time:</p>
+                            <p class="scoreboard-date">Date:</p>
+                            <p class="scoreboard-result">result:</p> -->
+                </div>
+            </div>
             </div>
         </section>
 
         <section class="winner-display">
-            <h2>Congratulations! player, you won!</h2> 
-            <!-- innehållet i NÄSTAN ALLT borde komma från JS -->
-             <!-- player är gameState:currentUser -->
-            <div class="overlay-card">
-                <h3 id="correct-word"></h3>
-                <p>Wrong guesses: </p>
-                <!-- om man vill kan man ha accuracy och score -->
-                <!--button till scoreboard-->
-                <!--button till nytt spel med startNewGameButton-->
-                <!-- Alla knappar finns i filen buttons.js-->
+            <div class="overlay-backdrop">
+                <div class="overlay-card">
+                    <h2>Congratulations! ${gameState.currentUser}, you won!</h2>
+                    <!-- innehållet i NÄSTAN ALLT borde komma från JS -->
+                    <!-- player är gameState:currentUser -->
+                    <h3 id="correct-word"></h3>
+                    <p>Wrong guesses: </p>
+                    <!-- om man vill kan man ha accuracy och score -->
+                    <!--button till scoreboard-->
+                    <!--button till nytt spel med startNewGameButton-->
+                    <!-- Alla knappar finns i filen buttons.js-->
+                </div>
             </div>
         </section>
 
         <section class="loser-display">
-            <h2>You lose! Better luck next time player! </h2>
-            <!-- innehållet i NÄSTAN ALLT borde komma från JS -->
-             <!-- player är gameState:currentUser -->
-            <div class="overlay-card">
-                <h3 id="correct-word"></h3>
-                <p>Wrong guesses: </p>
-                <!-- om man vill kan man ha accuracy och score -->
-                <!--button till scoreboard med klassen score-board-button-->
-                <!--button till nytt spel med klassen new-game-button-->
-                <!-- Alla knappar finns i filen buttons.js-->
+            <div class="overlay-backdrop">
+                <div class="overlay-card">
+                    <h2>You lose! Better luck next time player! </h2>
+                    <!-- innehållet i NÄSTAN ALLT borde komma från JS -->
+                    <!-- player är gameState:currentUser -->
+                    <h3 id="correct-word"></h3>
+                    <p>Wrong guesses: </p>
+                    <!-- om man vill kan man ha accuracy och score -->
+                    <!--button till scoreboard med klassen score-board-button-->
+                    <!--button till nytt spel med klassen new-game-button-->
+                    <!-- Alla knappar finns i filen buttons.js-->
+                </div>
             </div>
         </section>
     </main>

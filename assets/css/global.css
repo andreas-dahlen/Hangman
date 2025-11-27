@@ -1,24 +1,23 @@
-* > {
+* {
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: whitesmoke;
+  background: linear-gradient(to bottom, rgb(255, 166, 0), rgb(228, 83, 0));
   height: 100vh;
 }
 
 .button {
   width: 100%;
   padding: 12px;
-  background: #20a33f;
-  /*TODO: ändra färgerna när vi gjort spelvyn. Passar grön?*/
+  background: #67a41b;
   color: white;
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -27,4 +26,10 @@ body {
 
 .btn:hover {
   background: #1d4ed8;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  /* TODO: BETTER STYLE MORE COOL */
 }

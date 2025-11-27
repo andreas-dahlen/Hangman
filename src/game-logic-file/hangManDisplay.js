@@ -9,13 +9,14 @@ const hangman = [
 
 function hangmanReveal(mistake) {
     const makeHangman = document.querySelector('.hangman-display')
+    //TODO: SKAPA ETT DIV ELEMENT OCH STOPPA BILDERNA INDIVIDUELLT!
      const img = document.createElement('img');
 
-        img.src = `../../assets/images/${hangman[mistake]}.png`;
-        img.alt = 'hangman display';
-        
-        img.classList.add(`wrong-guess-img-${mistake}`);
-        makeHangman.appendChild(img);
+    img.src = `../../assets/images/${hangman[mistake]}.png`;
+    img.alt = 'hangman display';
+    
+    img.classList.add(`wrong-guess-img-${mistake}`, 'hangman-general');
+    makeHangman.appendChild(img);
 }
 
-export {hangmanReveal}
+export { hangmanReveal }
