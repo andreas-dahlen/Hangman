@@ -7,7 +7,7 @@ function revealLetter(index) {
 
 //shows error message
 function showError(message) {
-    const box = document.querySelector(".error-msg");
+    const box = document.querySelector("#input-error");
 
     box.textContent = message;
     box.classList.remove("hidden");
@@ -62,6 +62,7 @@ function guessResultDisplay(state) {
         ]
     };
 
+    //fixa hidden med detta!
     const pElement = document.querySelector('.guess-message');
     const selectedArray = state ? messages.correct : messages.wrong;
     const randomMessage = selectedArray[Math.floor(Math.random() * selectedArray.length)];

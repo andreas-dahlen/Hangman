@@ -1,10 +1,33 @@
+/* header {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between; 
+    background: linear-gradient(to right, rgb(211, 193, 0), rgb(255, 128, 0));   
+    
+
+   */
+
 header {
     display: flex;
-    flex-direction: row;    
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 100px;
+    background: linear-gradient(to right, rgb(211, 193, 0), rgb(255, 128, 0));
+    /* padding: 0 1rem; */
+    border-bottom: 2px solid black;
+    & > img {
+        width: 20px;
+        height: 20px;
+    }
+    & > h1 {
+    font-size: 4em;
+    color: rgb(254, 169, 0);
+    filter: drop-shadow(2px 2px 4px rgb(0, 0, 0));
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    }
 }
 
-.score-board-button {
-    background-color: blue;
-    width: 200px;
-    height: 200px;
-}
+

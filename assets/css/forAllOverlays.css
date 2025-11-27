@@ -1,9 +1,7 @@
 .overlay-backdrop {
   position: fixed;
   inset: 0;
-  /* TODO: vill vi att hela skärmen ska täckas? bestäm när spelvyn är klar*/
-  background: rgba(0, 0, 0, 0.33);
-  /* TODO: ändra hur genomskinlig bakgrunden ska vara när vi gjort spelvyn*/
+  background: rgba(0, 0, 0, 0.415);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,14 +31,7 @@
 
 }
 
-.error {
-  margin-top: 10px;
-  color: red;
-  font-size: 14px;
-}
-
 .hide {
     display: none !important;
-  /* opasity kan hidra klickbarhet efterson den blir osynlig och inte tas bort från DOM*/
 }
 
