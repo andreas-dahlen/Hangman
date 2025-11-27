@@ -21,7 +21,7 @@ header {
         height: 20px;
     }
     & > h1 {
-    font-size: 4em;
+    font-size: 3em;
     color: rgb(254, 169, 0);
     filter: drop-shadow(2px 2px 4px rgb(0, 0, 0));
     position: absolute;

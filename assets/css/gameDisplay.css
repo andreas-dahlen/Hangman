@@ -6,7 +6,7 @@
 .letter-slot {
     display: flex;
     padding-left: 10px;
-    font-size: 3em;
+    font-size: 1em;
 }
 .hangman-display {
     flex: 1;

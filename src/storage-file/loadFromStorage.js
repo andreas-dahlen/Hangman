@@ -1,7 +1,14 @@
-function loadScoreboard() { 
+function loadScoreboard() {
   //TODO: try catch
-  return JSON.parse(localStorage.getItem('scoreboard')); // hämtar localStorage, nvänder pars för att ta bort stringafy och lämnar den till den som anropar. 
 
- }
+  let scorboard = JSON.parse(localStorage.getItem('scoreboard'))
 
- export { loadScoreboard } //den exproterar funktionen så andra kan importera den
+  if (scorboard === null) {
+    return []; //returnerar en tom lista
+  } else { 
+    return scorboard; 
+  }
+
+}
+
+export { loadScoreboard } //den exproterar funktionen så andra kan importera den
