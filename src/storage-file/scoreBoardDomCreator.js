@@ -5,7 +5,7 @@
 
 //TODO: FLYTTA TILL UI I GAME_LOGIC_FILE
 
-import { gameState } from './currentGameState.js';
+import { loadGameState } from './loadFromStorage.js';
 
 export function infoToScoreBoard() {
 
@@ -16,21 +16,23 @@ export function infoToScoreBoard() {
   const scoreBoardDate = document.querySelector('.scoreboard-date');
   const scoreBoardStatus = document.querySelector('.scoreboard-status');
 
-  console.log(gameState.currentUser);
+  // console.log(gameState.currentUser);
 
   //TODO: Den ska alltså ta informationen från storage
 
-  scoreBoardName.innerText = 'Name: ' + gameState.currentUser;
+  let CurrentUserStat = loadGameState(); //informationen från loadGameState stoppas i currentUserState
+
+  scoreBoardName.innerText = 'Name: ' + CurrentUserStat.name;
   
 //TODO: behöver score, accurecy, mistakes, 
 
-  scoreBoardWordlength.innerText = 'Word length: ' + gameState.currentWord.length;
+  scoreBoardWordlength.innerText = 'Word length: ' + CurrentUserStat.wordLength;
 
-  scoreBoardTime.innerText = 'Time: ' + gameState.time;
+  scoreBoardTime.innerText = 'Time: ' + CurrentUserStat.time;
 
-  scoreBoardDate.innerText = 'Date: ' + gameState.date;
+  scoreBoardDate.innerText = 'Date: ' + CurrentUserStat.date;
 
-  scoreBoardStatus.innerText = gameState.winState
+  scoreBoardStatus.innerText = CurrentUserStat.status;
 
 }
 
@@ -39,7 +41,7 @@ export function infoToScoreBoard() {
 
 // console.log('hej')
 
-export function populateScoreboard() {
+// export function populateScoreboard() {
 
-}
+// }
 
