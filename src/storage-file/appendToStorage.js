@@ -1,7 +1,21 @@
-// TODO: lagra load from storage till local storage. (tror det bara är att "appenda" )
 
-// import { gameState } from "./currentGameState";
+import { gameState } from "../storage-file/currentGameState.js";
 
+function storeGameState() { //funktionen samlar och lägger informationen i localStorage
+  let playerResult = {
+    name: gameState.currentUser,
+    wordLength: gameState.currentWord.length,
+    time: gameState.time,
+    date: gameState.date,
+    status: gameState.winState
+  };
+
+  localStorage.setItem('scoreStat', JSON.stringify(playerResult))
+  
+
+}
+
+export { storeGameState }
 
 //TODO: FUNCTION LEADERBOARD
 // gameState.currentUser
@@ -11,9 +25,7 @@
 // gameState.currentWord.length
 //accuracy
 //score
+//guesses
 
-  //DETTA SKA TILL STORAGE
 
-  //stringify
 
-  //parse
