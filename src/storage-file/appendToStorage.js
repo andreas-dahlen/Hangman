@@ -1,21 +1,24 @@
 
 import { gameState } from "../storage-file/currentGameState.js";
+import { loadScoreboard } from "./loadFromStorage.js";
 
-function storeGameState() { //funktionen samlar och lägger informationen i localStorage
+function storeScoreboard() { //funktionen samlar och lägger informationen i localStorage
   let playerResult = {
     name: gameState.currentUser,
     wordLength: gameState.currentWord.length,
     time: gameState.time,
     date: gameState.date,
-    status: gameState.winState
+    winState: gameState.winState
   };
 
-  localStorage.setItem('scoreStat', JSON.stringify(playerResult))
-  
+  const existing = loadScoreboard()
 
+  existing.push(playerResult);
+
+  localStorage.setItem('scoreboard', JSON.stringify(existing));
 }
 
-export { storeGameState }
+export { storeScoreboard }
 
 //TODO: FUNCTION LEADERBOARD
 // gameState.currentUser

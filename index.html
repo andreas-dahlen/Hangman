@@ -21,7 +21,9 @@
     <header>
         <img src="" alt="">
         <h1>Hang Man</h1>
-        <nav class="score-board-button">Scoreboard</nav>  <!-- varför nav? -->
+        <nav class="score-board-button">
+            <span> Scoreboard</span>
+        </nav>
     </header>
 
     <main>
@@ -59,11 +61,11 @@
                 <div class="overlay-card">
 
                     <label for="nameInput">Name:</label>
-                    <input type="text" id="nameInput" placeholder="Name your player" />
+                    <input type="text" id="nameInput" class="name-input" placeholder="Name your player" />
 
                     <button id="startButton" class="button">Start game</button>
 
-                    <p id="error" class="error" hidden>Enter a name to continue!</p>
+                    <p id="error" class="error-msg" hidden>Enter a name to continue!</p>
                 </div>
             </div>
         </section>
@@ -71,14 +73,13 @@
         <section class="scoreboard-display">
         
             <h2>Scoreboard</h2>
-            <div class="scoreboard-name">Name:</div>
-        <!-- ta bort id? ska jag använda camelcase så det blir rätt i js? -->
-            <div class="scoreboard-guesses">Guesses:</div>
-            <div class="scoreboard-word-length">word lengt:</div>
-            <div class="scoreboard-time">Time:</div>
-            <div class="scoreboard-date">Date:</div>
-            <div class="scoreboard-status">Status:</div>
-        
+            <div class="scoreboard-players">
+                <!-- <h3 class="scoreboard-name">Name:</h3>
+                <p class="scoreboard-word-length">word lengt:</p>
+                <p class="scoreboard-time">Time:</p>
+                <p class="scoreboard-date">Date:</p>
+                <p class="scoreboard-result">result:</p> -->
+            </div>
         </section>
 
         <section class="winner-display">
