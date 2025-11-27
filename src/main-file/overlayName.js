@@ -8,9 +8,13 @@ import { hideAllOverlays } from '../display-file/overlayDecider.js'
 
 //TODO: använd querySelector('# för id')
 
-const startButton = document.getElementById("startButton");
-const nameInput = document.getElementById("nameInput");
-const error = document.getElementById("error");
+const startButton = document.querySelector("#startButton");
+const nameInput = document.querySelector("#nameInput");
+const error = document.querySelector('#error');
+
+// const startButton = document.getElementById("startButton");
+// const nameInput = document.getElementById("nameInput");
+// const error = document.getElementById("error");
 
 // const overlayNameDisplay = document.getElementById("overlayNameDisplay")
 

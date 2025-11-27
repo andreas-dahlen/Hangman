@@ -3,3 +3,28 @@
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: whitesmoke;
+  height: 100vh;
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  background: #20a33f;
+  /*TODO: ändra färgerna när vi gjort spelvyn. Passar grön?*/
+  color: white;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+}

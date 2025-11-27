@@ -3,11 +3,12 @@ const gameState = {
     currentLetterArray: [],
     guessedLetters: new Set(),
     guessedWords: new Set(),
-    correctGuessCount: 0,
+    guessIteration: 0,
+    correctGuesses: 0,
     mistakes: 0,
     maxMistakes: 6,
     currentUser: '',
-    winState: '',
+    winState: '', //samma som när användaren ser result:
     time: '',
     date: '',
     accuracy: '',
@@ -19,17 +20,21 @@ function resetGameState() {
     gameState.currentLetterArray = [];
     gameState.guessedLetters = new Set();
     gameState.guessedWords = new Set(),
-    gameState.correctGuessCount = 0; //rename this to ittiration counter
-    gameState.howManyTimesYouAtuallyGuessedCorrectly = 0; //self explanitory
+    gameState.guessIteration = 0;
+    gameState.correctGuesses = 0;
+    gameState.mistakes = 0;
+    // maxMistakes = 6; //om det finns tid för difficulty så anropar denna en funktion som hanterar det.
+    gameState.currentUser = setUser(),
+    gameState.winState = '',
+    gameState.time = '',
+    gameState.date = '',
+    gameState.accuracy = '',
+    gameState.score = ''
 
     //TODO: both of these need to be in gameState and stuff...
 
     //TODO: accuracy (currectguess / total guesses) * 100
 
-    gameState.mistakes = 0;
-    gameState.maxMistakes = 6;
-    gameState.currentUser = setUser();
-    gameState.winState = ''
 }
 
 //MAKE TODO: currentWord, 
@@ -59,7 +64,7 @@ function resetGameState() {
 //     accuracy: (gameState.howManyTimesYouAtuallyGuessedCorrectly /
 //               (gameState.howManyTimesYouAtuallyGuessedCorrectly + gameState.mistakes)) * 100,
 //     score: (gameState.currentWord.length * 10) - (gameState.mistakes * 5),
-//     winState: gameState.winState,
+//     setWinState: gameState.winState,
 //     date: Date.now()
 // };
 
@@ -73,7 +78,7 @@ function setUser(name) {
     gameState.currentUser = name
 }
 
-function winState(state) {
+function setWinState(state) {
     if (state)
     gameState.winState = 'Win!'
     else
@@ -88,7 +93,7 @@ function winState(state) {
 
 //adds time into gameState.time
 //adds date into gameState.date
-function timeAndDate() {
+function setTimeAndDate() {
     
     let now = new Date();
     
@@ -105,6 +110,6 @@ export {
     resetGameState, 
     setWord, 
     setUser,
-    winState,
-    timeAndDate
+    setWinState,
+    setTimeAndDate
 };

@@ -3,45 +3,73 @@
 // TODO: 4 kunna gå in på scoreborden genom att trycka på en menylängst upp till höger
 // TODO: 5 det ska gå att sortera på tid eller datum 
 
-//TODO: FLYTTA TILL UI I GAME_LOGIC_FILE
+import { loadScoreboard } from './loadFromStorage.js';
 
-import { loadGameState } from './loadFromStorage.js';
+function infoToScoreBoard(index) {
 
-export function infoToScoreBoard() {
+  const position = document.querySelector('.scoreboard-display')
 
-  const scoreBoardName = document.querySelector('.scoreboard-name');
+  const container = document.createElement('div')
+  container.classList.add('scoreboard-players')
+
+  //TODO: skulle kunna lägga på klasser på olika element..?
+
+const scoreBoardName = document.createElement('h3')
+const scoreBoardWordLength = document.createElement('p')
+const scoreBoardTime = document.createElement('p')
+const scoreBoardDate = document.createElement('p')
+const scoreBoardWinState = document.createElement('p')
+
+//TODO: behöver score, accurecy, mistakes!!
+
+
+  // const scoreBoardName = document.querySelector('.scoreboard-name');
   // const scoreBoardGuesses = document.querySelector('.scoreBoard-guesses');
-  const scoreBoardWordlength = document.querySelector('.scoreboard-word-length');
-  const scoreBoardTime = document.querySelector('.scoreboard-time');
-  const scoreBoardDate = document.querySelector('.scoreboard-date');
-  const scoreBoardStatus = document.querySelector('.scoreboard-status');
+  // const scoreBoardWordlength = document.querySelector('.scoreboard-word-length');
+  // const scoreBoardTime = document.querySelector('.scoreboard-time');
+  // const scoreBoardDate = document.querySelector('.scoreboard-date');
+  // const scoreBoardresult = document.querySelector('.scoreboard-result');
 
   // console.log(gameState.currentUser);
 
   //TODO: Den ska alltså ta informationen från storage
 
-  let CurrentUserStat = loadGameState(); //informationen från loadGameState stoppas i currentUserState
+//informationen från loadScoreboard stoppas i scoreboard
 
-  scoreBoardName.innerText = 'Name: ' + CurrentUserStat.name;
+  let scoreboard = loadScoreboard(); 
+
+  //Jag tror att man behöver hämta från scoreboarden med hjälp av index? Madde du får lista ut hur man hittar t.ex. currentUserStats.name för position 0-slut.
+  let currentUserStats = scoreboard[index]
+
+  scoreBoardName.innerText = 'Name: ' + currentUserStats.name;
   
-//TODO: behöver score, accurecy, mistakes, 
+  scoreBoardWordLength.innerText = 'Word length: ' + currentUserStats.wordLength;
 
-  scoreBoardWordlength.innerText = 'Word length: ' + CurrentUserStat.wordLength;
+  scoreBoardTime.innerText = 'Time: ' + currentUserStats.time;
 
-  scoreBoardTime.innerText = 'Time: ' + CurrentUserStat.time;
+  scoreBoardDate.innerText = 'Date: ' + currentUserStats.date;
 
-  scoreBoardDate.innerText = 'Date: ' + CurrentUserStat.date;
+  scoreBoardWinState.innerText = currentUserStats.winState;
 
-  scoreBoardStatus.innerText = CurrentUserStat.status;
-
+  container.appendChild(scoreBoardName)
+  container.appendChild(scoreBoardWordLength)
+  container.appendChild(scoreBoardTime)
+  container.appendChild(scoreBoardDate)
+  container.appendChild(scoreBoardWinState)
+  position.appendChild(container)
 }
 
+function populateScoreboard() {
+ console.log('denna ska pupulera scoreboarden med hjälp av en itiration av loadScoreBoard och anropa infotoscoreboard')
+//Man kan göra liknande process som i guessProccessing.js vid word / letter processing. 
+let list = loadScoreboard()
 
+list.forEach ((scoreObject, index)=> {
 
+    infoToScoreBoard(index)
+  }) 
+}
 
-// console.log('hej')
+export { populateScoreboard }
 
-// export function populateScoreboard() {
-
-// }
 
