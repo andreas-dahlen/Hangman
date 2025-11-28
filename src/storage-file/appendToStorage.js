@@ -23,8 +23,3 @@ function storeScoreboard() {                                                  //
 }
 
 export { storeScoreboard }                                                      //10. exporterar storeScoreboard till guessProcessing.js
-
-
-
-
-

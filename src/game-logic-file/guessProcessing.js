@@ -6,6 +6,9 @@ import { populateScoreboard } from "../storage-file/scoreBoardDomCreator.js";
 import { showOverlay } from '../display-file/overlayDecider.js'
 import { storeScoreboard } from '../storage-file/appendToStorage.js'; //importerar funktion från appendToStorage, sparar spelets resultat i localStorage när spelet slutar
 
+import { showWinOverlay, showLoseOverlay } from '../display-file/overlayUi.js'; // Importerar funktion från overlayUi.js, 
+
+
 function processLetter(letter) {
     let falseGuess = true;
 
@@ -60,6 +63,7 @@ function checkGuess (guess) {
     if (gameState.mistakes >= gameState.maxMistakes) {
         updateLose()
         showOverlay('loser')
+        showLoseOverlay(correctWord); // För förlust /Emma
         setWinState(false)
         console.log(`you lost.`)
         storeScoreboard();                                                  //lagrar gameState när spelaren har vunnit eller förlorat
@@ -71,6 +75,7 @@ function checkGuess (guess) {
     else if (gameState.guessIteration >= gameState.currentWord.length) {
         updateWin()
         showOverlay('winner')
+        showWinOverlay(gameState.currentUser); // För vinst /Emma
         setWinState(true)
         console.log(`you won.`)
         storeScoreboard();                                                      //lagrar gameState när spelaren har vunnit eller förlorat
