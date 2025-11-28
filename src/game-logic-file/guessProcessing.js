@@ -4,7 +4,7 @@ import { hangmanReveal } from './hangManDisplay.js'
 import { updateWin, updateLose } from '../display-file/overlayUi.js'
 import { populateScoreboard } from "../storage-file/scoreBoardDomCreator.js";
 import { showOverlay } from '../display-file/overlayDecider.js'
-import { storeScoreboard } from '../storage-file/appendToStorage.js'; //importerar funktion från appendToStorage
+import { storeScoreboard } from '../storage-file/appendToStorage.js'; //importerar funktion från appendToStorage, sparar spelets resultat i localStorage när spelet slutar
 
 function processLetter(letter) {
     let falseGuess = true;
@@ -62,7 +62,7 @@ function checkGuess (guess) {
         showOverlay('loser')
         setWinState(false)
         console.log(`you lost.`)
-        storeScoreboard(); //lagrar gameState när spelaren har vunnit eller förlorat
+        storeScoreboard();                                                  //lagrar gameState när spelaren har vunnit eller förlorat
         populateScoreboard();
 
 
@@ -73,7 +73,7 @@ function checkGuess (guess) {
         showOverlay('winner')
         setWinState(true)
         console.log(`you won.`)
-        storeScoreboard(); //lagrar gameState när spelaren har vunnit eller förlorat
+        storeScoreboard();                                                      //lagrar gameState när spelaren har vunnit eller förlorat
         populateScoreboard();
 
 

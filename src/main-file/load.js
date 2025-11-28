@@ -58,7 +58,6 @@ function newGame() {
     gameLetterDisplay()
     setTimeAndDate()
     showOverlay('name')
-    //TODO: showOeverlay(name) Bör bara köras i början och sedan om man vill byta användare kör man den med button
 }
 
 export { newGame, loadEventListeners }

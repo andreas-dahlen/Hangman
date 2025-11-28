@@ -1,19 +1,58 @@
-.scoreboard-display {
+.scoreboard-display .overlay-card {
   display: grid;
   justify-content: stretch;
-  background-color: rgb(40, 37, 108);
-  color: white;
-  border: 1px solid white;
-  border-radius: 10px;
+  background-color: rgba(38, 136, 29, 0.954);
+  color: rgb(27, 49, 8);
+  border: 1px solid rgb(16, 15, 15);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   width: 20em;
-  height: 25em;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding-right: 10px;
+  padding-top: 10px;
 }
 
-.scoreboard-display > p {
-    border: 1px solid rgb(13, 135, 242);
+.scoreboard-display p {
+  border: 1px solid rgb(27, 57, 2);
+  background-color: rgb(217, 208, 208);
+  border-radius: 10px;
+  margin: 5px;
+  padding: 3px;
+}
+
+.sort-by-guesses {
+  border-radius: 10px;
+  margin-bottom: 5px;
+  max-width: 6em;
+}
+
+.sort-by-time-date {
+  border-radius: 10px;
+  margin-bottom: 5px;
+  max-width: 6em;
+}
+
+.sorting-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 3px;
+}
+
+.sorting-buttons button {
+  flex: 1;
+  /* kortform som som hänvisar till grow, shrink och basis */
+  height: 35px;
+  border-radius: 10px;
+
+  background-color: rgb(217, 208, 208);
+}
+
+.close-scoreboard {
+  border: 1px solid rgb(27, 57, 2);
+  background-color: rgb(241, 74, 45);
   border-radius: 10px;
   margin: 5px;
   padding: 3px;

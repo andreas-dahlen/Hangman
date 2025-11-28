@@ -18,7 +18,9 @@
 <body>
 
     <header>
-        <img src="./assets/images/mall.jpg" alt="ss">
+        <div class="logo">
+        <img src="./assets/images/cowboymelon.png" alt="ss">
+        </div>
         <h1>Hang Man</h1>
         <nav class="score-board-button">
             <span> Scoreboard</span>
@@ -46,7 +48,7 @@
 
             <div class="game-letter-display"></div>
 
-            <p id="input-error" class="error-msg hidden" ></p>
+            <p id="input-error" class="error-msg hidden"></p>
 
             <input name="guess-time" type="text" class="guess-bar" placeholder="Guess a letter">
 
@@ -74,16 +76,15 @@
 
         <section class="scoreboard-display">
             <div class="overlay-backdrop">
-                <div class="overlay-card"> 
+                <div class="overlay-card">
+                    <div class="sorting-buttons">
+                    <button class="sort-by-guesses">Sort by guesses</button>
+                    <button class="sort-by-time-date">Sort by time/date</button>
+                    </div>
                     <h2>Scoreboard</h2>
-                        <div class="scoreboard-dom">
-                    <!-- <h3 class="scoreboard-name">Name:</h3>
-                            <p class="scoreboard-word-length">word lengt:</p>
-                            <p class="scoreboard-time">Time:</p>
-                            <p class="scoreboard-date">Date:</p>
-                            <p class="scoreboard-result">result:</p> -->
+                    <div class="scoreboard-dom"></div>
+                    <button class="close-scoreboard">Close</button>
                 </div>
-            </div>
             </div>
         </section>
 

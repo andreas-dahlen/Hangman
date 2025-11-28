@@ -1,51 +1,36 @@
-
-//TODO: GÖR EN FUNKTION AV ALLT DETTA OCH STOPPA I displayUi.js
-//sedan deleta denna filen
-
 import { setUser } from '../storage-file/currentGameState.js';
-import { hideAllOverlays } from '../display-file/overlayDecider.js'
-// import { populateScoreboard } from './scoreBoard.js';
-
-//TODO: använd querySelector('# för id')
-
-const startButton = document.querySelector("#startButton");
-const nameInput = document.querySelector("#nameInput");
-const error = document.querySelector('#error');
-
-// const startButton = document.getElementById("startButton");
-// const nameInput = document.getElementById("nameInput");
-// const error = document.getElementById("error");
-
-// const overlayNameDisplay = document.getElementById("overlayNameDisplay")
-
-startButton.addEventListener('click', () => {
-  const name = nameInput.value.trim();
+import { hideAllOverlays } from '../display-file/overlayDecider.js'// import { populateScoreboard } from './scoreBoard.js';
+import { createScoreboardEventListeners } from './buttons.js';//importerat funkrionen
 
 
-  if (!name) {
-    error.classList.remove('hidden')
-    // error.hidden = false;
-    //TODO: ANDREAS lägg till en timer.
-    return;
-  }
+function handleNameInput() {
+  const startButton = document.querySelector("#startButton");// knappen som startar spelet
+  const nameInput = document.querySelector("#nameInput"); //textfältet som spelaren skriver in sitt namn
+  const error = document.querySelector('#error');//inget namn så visas felmeddelande
 
-  //TODO: lägg till addEventListener med ENTER
-  setUser(name)
-  hideAllOverlays()
-  // overlayNameDisplay.classList.toggle('hide');
+  startButton.addEventListener('click', () => {           //1. lägger till en eventlistener på knappen startButton. Varje klick kör koden i den anonyma funktionen.
+    const name = nameInput.value.trim();                  //2. hämtar text från name imput. Tar bort mellanslag i början och slutet av texten.
 
-  //TODO: {från: andreas} tänker att alla localStorage funktioner bör vara i appendToStorage filen. Skulle kunna "appendas" när man vinner eller förlorar i guessProcessing
-  //Det vill säga: Anropa funktionen när man vinner eller förlorar i guessprocessing > appendToStorage > storage
- //Detsamma med populateScoreboard...?
- //Tycker inte vi behöver en win/lose fil... dock skulle man kunna skapa en funktion som hanterar alla funktions anrop när man vinner/förlorar
-  localStorage.setItem("namn", name); 
-  // populateScoreboard();
+    if (!name) {                                          //3. om spelaren inte skrivit något namn visas ett felmeddelande genom att ta bort hidden.
+      error.classList.remove('hidden')                     
+      return;                                             //4. return stoppar koden så den inte fortsätter köras.
+    }
 
-  
-})
+    setUser(name)                                         //5. sparar spelarens namn i gameState.currentUser. Spelet vet vem som spelar
+    hideAllOverlays()                                     //6. gör att overlayen försvinner så man kan börja spela
+    createScoreboardEventListeners();                     //7. kör funktionen som lägger till eventListeners till scorborden (knapp för att öppna scoreboard, knapp för att sortera gissningar/tid datum.)
+  });
+}
+
+export {handleNameInput};                                  //8. exporterar handleNameInput till main.js där den körs när man trycker på startbutton
+
+//TODO: ANDREAS lägg till en timer.
 
 
-  
+
+
+
+
 
 
 
