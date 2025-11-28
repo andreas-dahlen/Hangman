@@ -4,7 +4,6 @@
   background-color: rgba(38, 136, 29, 0.954);
   color: rgb(27, 49, 8);
   border: 1px solid rgb(16, 15, 15);
-  border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
@@ -26,24 +25,35 @@
 .sort-by-guesses {
   border-radius: 10px;
   margin-bottom: 5px;
-  max-width: 5em;
+  max-width: 6em;
 }
 
 .sort-by-time-date {
   border-radius: 10px;
   margin-bottom: 5px;
-  max-width: 5em;
+  max-width: 6em;
 }
 
 .sorting-buttons {
   display: flex;
   justify-content: center;
-  gap: 5px;         
-  padding: 3px; 
+  gap: 5px;
+  padding: 3px;
 }
 
 .sorting-buttons button {
-  flex: 1;             /* alla knappar får lika stor bredd */
+  flex: 1;
+  /* kortform som som hänvisar till grow, shrink och basis */
   height: 35px;
   border-radius: 10px;
+
+  background-color: rgb(217, 208, 208);
+}
+
+.close-scoreboard {
+  border: 1px solid rgb(27, 57, 2);
+  background-color: rgb(241, 74, 45);
+  border-radius: 10px;
+  margin: 5px;
+  padding: 3px;
 }

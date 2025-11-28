@@ -16,7 +16,7 @@ body {
 .button {
   width: 100%;
   padding: 12px;
-  background: #67a41b;
+  background: rgba(38, 136, 29, 0.954);
   color: white;
   font-weight: bold;
   border: none;
