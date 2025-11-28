@@ -9,7 +9,10 @@
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   width: 20em;
-  /* height: 25em; */
+  max-height: 80vh;
+  overflow-y: auto;
+  padding-right: 10px;
+  padding-top: 10px;
 }
 
 .scoreboard-display p {
@@ -20,3 +23,27 @@
   padding: 3px;
 }
 
+.sort-by-guesses {
+  border-radius: 10px;
+  margin-bottom: 5px;
+  max-width: 5em;
+}
+
+.sort-by-time-date {
+  border-radius: 10px;
+  margin-bottom: 5px;
+  max-width: 5em;
+}
+
+.sorting-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;         
+  padding: 3px; 
+}
+
+.sorting-buttons button {
+  flex: 1;             /* alla knappar får lika stor bredd */
+  height: 35px;
+  border-radius: 10px;
+}

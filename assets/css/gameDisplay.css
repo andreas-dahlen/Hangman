@@ -13,8 +13,8 @@
     max-width: 550px;
     min-width: 340px;
     img {
-        width: 100%;
-        height: 100%;
+        width: 1%;  /*ändrade från 100% till 1% för att kunna göra ok css*/
+        height: 1%;
     }
 }
 .hangman-general {
