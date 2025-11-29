@@ -76,13 +76,3 @@
   color: white;
   min-width: 250px;
 }
-
-.newgame-btn {
-  margin-top: 15px;
-  padding: 10px 20px;
-  border: none;
-  background: #3b82f6;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-} /* CSS inlagd för overlayUi.js //Emma */

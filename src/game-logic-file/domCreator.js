@@ -7,15 +7,15 @@ function revealLetter(index) {
 
 //shows error message
 function showError(message) {
-    const box = document.querySelector("#input-error");
+    const box = document.querySelector('#input-error');
 
     box.textContent = message;
-    box.classList.remove("hidden");
+    box.classList.remove('hidden');
 
     clearTimeout(window._errorTimeout);
     
     window._errorTimeout = setTimeout(() => {
-        box.classList.add("hidden");
+        box.classList.add('hidden');
     }, 4000);
 }
 
@@ -42,7 +42,7 @@ function mistakeDisplay(input) {
     }
 
     pos.appendChild(container);
-} 
+}
 
 function guessResultDisplay(state) {
     const messages = {
@@ -77,4 +77,4 @@ function guessResultDisplayEnding() {
     pElement.textContent = 'Guess an entire English word or individual letter. You have six lives. Good luck!'
 }
 
-export {revealLetter, showError, mistakeDisplay, guessResultDisplay, guessResultDisplayEnding}
+export {revealLetter, showError, mistakeDisplay, guessResultDisplay, guessResultDisplayEnding }

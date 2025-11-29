@@ -22,15 +22,14 @@
         <img src="./assets/images/cowboymelon.png" alt="ss">
         </div>
         <h1>Hang Man</h1>
-        <nav class="score-board-button">
-            <span> Scoreboard</span>
+        <nav>
+            <span class="restart-button button">Restart</span>
+            <span class="score-board-button button"> Scoreboard</span>
         </nav>
     </header>
 
     <main>
         <section class="game-section">
-
-            <!-- <div class="change-user"></div> -->
 
             <div class="guess-result-display">
                 <h2 class="guess-message"> Guess an entire English word or individual letter. You have six lives. Good luck!</h2>
@@ -61,8 +60,6 @@
                     <p id="error" class="error-msg hidden">Enter a name to continue!</p>
 
                     <button id="startButton" class="button">Start game</button>
-
-
                 </div>
             </div>
         </section>
@@ -76,14 +73,14 @@
                     <button class="sort-by-time-date">Sort by time/date</button>
                     </div>
                     <div class="scoreboard-dom"></div>
-                    <button class="close-scoreboard">Close</button>
+                    <button class="hide-overlays-button close-scoreboard">Close</button>
                 </div>
             </div>
         </section>
 
         <section class="winner-display">
             <div class="overlay-backdrop">
-                <div class="overlay-card">
+                <div class="winner-dom">
                     <h2>Congratulations! ${gameState.currentUser}, you won!</h2>
                     <!-- innehållet i NÄSTAN ALLT borde komma från JS -->
                     <!-- player är gameState:currentUser -->
@@ -91,7 +88,7 @@
                     <p>Wrong guesses: </p>
                     <!-- om man vill kan man ha accuracy och score -->
                     <!--button till scoreboard-->
-                    <!--button till nytt spel med startNewGameButton-->
+                    <!--button till nytt spel med hideOverlaysButton-->
                     <!-- Alla knappar finns i filen buttons.js-->
                 </div>
             </div>
@@ -99,7 +96,7 @@
 
         <section class="loser-display">
             <div class="overlay-backdrop">
-                <div class="overlay-card">
+                <div class="loser-dom">
                     <h2>You lose! Better luck next time player! </h2>
                     <!-- innehållet i NÄSTAN ALLT borde komma från JS -->
                     <!-- player är gameState:currentUser -->
@@ -107,7 +104,7 @@
                     <p>Wrong guesses: </p>
                     <!-- om man vill kan man ha accuracy och score -->
                     <!--button till scoreboard med klassen score-board-button-->
-                    <!--button till nytt spel med klassen new-game-button-->
+                    <!--button till nytt spel med klassen hide-overlays-button-->
                     <!-- Alla knappar finns i filen buttons.js-->
                 </div>
             </div>

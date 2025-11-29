@@ -6,7 +6,7 @@ import { gameState, resetGameState, setWord, setTimeAndDate } from "../storage-f
 //importera även timeLog
 import { wordList } from "../storage-file/wordList.js";
 import { showOverlay} from "../display-file/overlayDecider.js"
-import { scoreBoardButton } from './buttons.js'
+import { loadEventListeners } from './buttons.js'
 
 //generates a random word
 function getRandomWord() {
@@ -38,7 +38,6 @@ function createLetterSlot(letter) {
 function gameLetterDisplay() {
     const letterArray = gameState.currentLetterArray;
     const display = document.querySelector('.game-letter-display')
-    display.innerHTML = '';
 
     letterArray.forEach((letter, i) => {
         const divElement = createLetterSlot(letter)
@@ -46,19 +45,33 @@ function gameLetterDisplay() {
     })
 }
 
-function loadEventListeners() {
-    scoreBoardButton()
+function resetAllDomsByClass() {
+  const classesToRemove = [
+    'overlay-end',
+    'hangman-img',
+    'wrong-guess-container',
+    'letter-slot'
+  ];
 
+  classesToRemove.forEach(className => {
+    document.querySelectorAll(`.${className}`).forEach(el => el.remove());
+  });
 }
+
 
 //resets and starts the game
 function newGame() {
     resetGameState()
+    resetAllDomsByClass()
     const word = getLongestWord()
     //TODO: RESET THIS TO GETRANDOM WORD! THIS IS FOR CSS TESTING
     setWord(word)
     gameLetterDisplay()
     setTimeAndDate()
+    loadEventListeners('hideoverlays')
+    loadEventListeners('scoreboardbutton')
+    loadEventListeners('startbutton')
+    loadEventListeners('restartbutton')
     showOverlay('name')
 }
 
@@ -76,4 +89,4 @@ function getLongestWord() {
     return longest
 }
 
-export { newGame, loadEventListeners}
+export { newGame, resetAllDomsByClass }

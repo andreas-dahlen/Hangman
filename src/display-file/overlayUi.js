@@ -1,41 +1,44 @@
-import { newGame } from '../main-file/load.js'; // Importerar 'newGame'
+import { newGame } from '../main-file/load.js'; // Importerar 'newGame' //Den här ska bort
+import { gameState } from '../storage-file/currentGameState.js';
+import { showOverlay } from './overlayDecider.js';
  
- 
- function updateWin() {
-    //?
-    console.log('updateLose!')
-}
-
-function updateLose() {
-    //?
-    console.log('updateLose!')
-}      
-
-
-function createEndOverlay(title, message) {
+function createEndOverlay(title) {
   const overlay = document.createElement('div');
   overlay.classList.add('overlay-end');
   
   const card = document.createElement('div');
   card.classList.add('overlay-card');
 
-  const h1 = document.createElement('h1');
-  h1.textContent = title;
+  const h2 = document.createElement('h2');
+  h2.textContent = title;
 
-  const p = document.createElement('p');
-  p.textContent = message;
+  const pWord = document.createElement('p');
+  pWord.textContent = `correct word: ${gameState.currentWord}`;
 
+  const wrongGuessP = document.createElement('p')
+  wrongGuessP.textContent = `wrong guesses: ${gameState.mistakes}`
+  
+    const accuracyP = document.createElement('p')
+    accuracyP.textContent = `accuracy: ${gameState.accuracy}`
+  
+    const scoreP = document.createElement('p')
+    scoreP.textContent = `score: ${gameState.score}`
+  
   const btn = document.createElement('button');
   btn.textContent = 'New Game';
-  btn.classList.add('newgame-btn');
+  btn.classList.add('button');
 
+  //TODO: FLYTTA EVENT LISTENER
   btn.addEventListener('click', () => {
     overlay.remove();
     newGame();   // Startar om spelet
   });
 
-  card.appendChild(h1);
-  card.appendChild(p);
+  card.appendChild(h2);
+  card.appendChild(pWord);
+  card.appendChild(wrongGuessP);
+  card.appendChild(accuracyP);
+  card.appendChild(scoreP);
   card.appendChild(btn);
   overlay.appendChild(card);
 
@@ -43,14 +46,18 @@ function createEndOverlay(title, message) {
 }
 
 
-function showWinOverlay(playerName) {
-  const overlay = createEndOverlay('You Win! 🎉', `${playerName} klarade ordet!`);
-  document.body.appendChild(overlay);
+function showWinOverlay() {
+  const pos = document.querySelector('.winner-dom')
+  const overlay = createEndOverlay(`Congratulations! 🎉 ${gameState.currentUser} you won!`);
+  pos.appendChild(overlay);
+  showOverlay('winner')
 }
 
-function showLoseOverlay(correctWord) {
-  const overlay = createEndOverlay('You Lost 😢', `Rätt ord var: ${correctWord}`);
-  document.body.appendChild(overlay);
+function showLoseOverlay() {
+  const pos = document.querySelector('.loser-dom')
+  const overlay = createEndOverlay(`You Lost 😢 Better luck next time ${gameState.currentUser}`);
+  pos.appendChild(overlay);
+  showOverlay('loser')
 }
 
 
@@ -67,4 +74,4 @@ function showScoreBoard() {
     });
 }
 
-export {updateLose, updateWin, showWinOverlay, showLoseOverlay}; // La till de nya funktionerna
+export {showWinOverlay, showLoseOverlay}; // La till de nya funktionerna
