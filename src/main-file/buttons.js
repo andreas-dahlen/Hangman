@@ -78,12 +78,13 @@ function handleNameInput() {
 //TODO: ANDREAS lägg till en timer.
 
 function restart() {
-    const restart = document.querySelector('.restart-button');
-    restart.addEventListener('click', () => {
-        //10. varje knapp har en click-listener som fyller sorterad info till scoreBoarden
-        newGame()
-    });
+    const restartButtons = document.querySelectorAll('.restart-button');
 
+    restartButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            newGame();
+        });
+    });
 }
 
 function loadEventListeners(type) {

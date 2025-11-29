@@ -1,6 +1,6 @@
-import { newGame } from '../main-file/load.js'; // Importerar 'newGame' //Den här ska bort
 import { gameState } from '../storage-file/currentGameState.js';
 import { showOverlay } from './overlayDecider.js';
+import {loadEventListeners } from '../main-file/buttons.js'
  
 function createEndOverlay(title) {
   const overlay = document.createElement('div');
@@ -26,13 +26,8 @@ function createEndOverlay(title) {
   
   const btn = document.createElement('button');
   btn.textContent = 'New Game';
-  btn.classList.add('button');
+  btn.classList.add('button', 'restart-button');
 
-  //TODO: FLYTTA EVENT LISTENER
-  btn.addEventListener('click', () => {
-    overlay.remove();
-    newGame();   // Startar om spelet
-  });
 
   card.appendChild(h2);
   card.appendChild(pWord);
@@ -51,6 +46,7 @@ function showWinOverlay() {
   const overlay = createEndOverlay(`Congratulations! 🎉 ${gameState.currentUser} you won!`);
   pos.appendChild(overlay);
   showOverlay('winner')
+  loadEventListeners('restartbutton')
 }
 
 function showLoseOverlay() {
@@ -58,6 +54,7 @@ function showLoseOverlay() {
   const overlay = createEndOverlay(`You Lost 😢 Better luck next time ${gameState.currentUser}`);
   pos.appendChild(overlay);
   showOverlay('loser')
+  loadEventListeners('restartbutton')
 }
 
 
