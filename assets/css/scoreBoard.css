@@ -1,7 +1,7 @@
 .scoreboard-display .overlay-card {
   display: grid;
   justify-content: stretch;
-  background-color: rgba(38, 136, 29, 0.954);
+  background: linear-gradient(to bottom, rgb(255, 166, 0), rgb(228, 83, 0));
   color: rgb(27, 49, 8);
   border: 1px solid rgb(16, 15, 15);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);

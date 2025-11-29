@@ -28,48 +28,41 @@
     </header>
 
     <main>
-        <section>
+        <section class="game-section">
 
             <!-- <div class="change-user"></div> -->
 
             <div class="guess-result-display">
-                <h2 class="guess-message"></h2>
+                <h2 class="guess-message"> Guess an entire English word or individual letter. You have six lives. Good luck!</h2>
             </div>
 
             <div class="game-view">
                 <div class="spacer"></div>
-
-                <div class="hangman-display">
-                    <img src="./assets/images/western-theme.jpg" alt="">
-                </div>
-
+                    <div class="hangman-display">
+                        <img src="./assets/images/western-theme.jpg" alt="hangman background" class="hangman-background">
+                    </div>
                 <div class="wrong-guess-display"></div>
             </div>
 
-            <div class="game-letter-display"></div>
-
-            <p id="input-error" class="error-msg hidden"></p>
-
-            <input name="guess-time" type="text" class="guess-bar" placeholder="Guess a letter">
-
-
-
+            <div class="game-control-box">
+                <div class="game-letter-display"></div>
+                <p id="input-error" class="error-msg error-game-msg hidden"></p>
+                <input name="guess-time" type="text" class="guess-bar" placeholder="Guess a letter or a word">
+            </div>
         </section>
-
-        <!-- <section class="name-creator-display">
-
-        </section> -->
 
         <section class="overlay-name-display">
             <div class="overlay-backdrop">
                 <div class="overlay-card">
 
-                    <label for="nameInput">Name:</label>
+                    <label for="nameInput">Welcome!</label>
                     <input type="text" id="nameInput" class="name-input" placeholder="Name your player" />
+                    
+                    <p id="error" class="error-msg hidden">Enter a name to continue!</p>
 
                     <button id="startButton" class="button">Start game</button>
 
-                    <p id="error" class="error-msg hidden">Enter a name to continue!</p>
+
                 </div>
             </div>
         </section>
@@ -77,11 +70,11 @@
         <section class="scoreboard-display">
             <div class="overlay-backdrop">
                 <div class="overlay-card">
+                    <h2>Scoreboard</h2>
                     <div class="sorting-buttons">
                     <button class="sort-by-guesses">Sort by guesses</button>
                     <button class="sort-by-time-date">Sort by time/date</button>
                     </div>
-                    <h2>Scoreboard</h2>
                     <div class="scoreboard-dom"></div>
                     <button class="close-scoreboard">Close</button>
                 </div>

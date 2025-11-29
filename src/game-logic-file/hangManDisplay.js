@@ -15,7 +15,7 @@ function hangmanReveal(mistake) {
     img.src = `../../assets/images/${hangman[mistake]}.png`;
     img.alt = 'hangman display';
     
-    img.classList.add(`wrong-guess-img-${mistake}`, 'hangman-general');
+    img.classList.add(`wrong-guess-img-${mistake}`, 'hangman-img');
     makeHangman.appendChild(img);
 }
 
