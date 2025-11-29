@@ -24,7 +24,7 @@ header {
         white-space: nowrap;
     }
 
-    .score-board-button {
+    .button-style {
         white-space: nowrap;    
         background-color: rgba(146, 190, 79, 0.837);
         padding: 10px;
@@ -46,7 +46,7 @@ header {
         position: static;
     }
 
-    .score-board-button {
+    .button-style {
         margin-top: 3em;
     }
 }

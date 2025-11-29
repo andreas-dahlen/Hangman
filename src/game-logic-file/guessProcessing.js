@@ -1,11 +1,8 @@
 import { gameState, setWinState } from '../storage-file/currentGameState.js'
 import { revealLetter, mistakeDisplay, guessResultDisplay, guessResultDisplayEnding} from './domCreator.js'
 import { hangmanReveal } from './hangManDisplay.js'
-import { updateWin, updateLose } from '../display-file/overlayUi.js'
 import { populateScoreboard } from "../storage-file/scoreBoardDomCreator.js";
-import { showOverlay } from '../display-file/overlayDecider.js'
 import { storeScoreboard } from '../storage-file/appendToStorage.js'; //importerar funktion från appendToStorage, sparar spelets resultat i localStorage när spelet slutar
-
 import { showWinOverlay, showLoseOverlay } from '../display-file/overlayUi.js'; // Importerar funktion från overlayUi.js, 
 
 
@@ -61,19 +58,19 @@ function checkGuess (guess) {
     }    
     //check if you've lost
     if (gameState.mistakes >= gameState.maxMistakes) {
-        updateLose()
-        showOverlay('loser')
-        showLoseOverlay(correctWord); // För förlust /Emma
+        console.log('you lost')
+        showLoseOverlay(); // För förlust /Emma
         setWinState(false)
         guessResultDisplayEnding()
-        storeScoreboard();                                                  //lagrar gameState när spelaren har vunnit eller förlorat
+        storeScoreboard();
+        //lagrar gameState när spelaren har vunnit eller förlorat
         populateScoreboard();
+        
     }
     //check if you've won
     else if (gameState.guessIteration >= gameState.currentWord.length) {
-        updateWin()
-        showOverlay('winner')
-        showWinOverlay(gameState.currentUser); // För vinst /Emma
+        console.log('you won')
+        showWinOverlay(); // För vinst /Emma
         setWinState(true)
         guessResultDisplayEnding()
         storeScoreboard();                                                      //lagrar gameState när spelaren har vunnit eller förlorat
