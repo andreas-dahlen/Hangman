@@ -4,21 +4,19 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-  /* box-sizing: border-box; */
-  margin: 0;
-  padding: 0;
-  gap: 0;
-  background: linear-gradient(to bottom, rgb(255, 166, 0), rgb(228, 83, 0));
-  height: 100vh;
+.hidden {
+    opacity: 0;
 }
 
 .button {
   width: 100%;
   padding: 12px;
-  background: rgba(38, 136, 29, 0.954);
-  color: white;
+  background: rgba(146, 190, 79, 0.837);
+  color: white;    
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   font-weight: bold;
+  font-size: 1.1em;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -34,3 +32,15 @@ h2 {
   justify-content: center;
   /* TODO: BETTER STYLE MORE COOL */
 }
+
+.error-msg {
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 0, 0);
+    filter: drop-shadow(2px 1px 1px rgb(0, 0, 0));
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    transition: opacity 0.5s ease;
+}
+
+

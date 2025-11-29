@@ -51,14 +51,16 @@ function guessResultDisplay(state) {
             'You good!',
             'Getting there!',
             'Awesome!',
-            'Well done!'
+            'Well done!',
+            'Good! now we cooking!'
         ],
         wrong: [
             'Ooof',
             'Dang, guess again!',
             'Pause and think!',
             'Think before you guess!',
-            'Better luck next guess!'
+            'Better luck next guess!',
+            'Hint! The cowboy likes food!'
         ]
     };
 
@@ -70,4 +72,9 @@ function guessResultDisplay(state) {
     //TODO: TIMER FUNKTION!
 }
 
-export {revealLetter, showError, mistakeDisplay, guessResultDisplay}
+function guessResultDisplayEnding() {
+    const pElement = document.querySelector('.guess-message');
+    pElement.textContent = 'Guess an entire English word or individual letter. You have six lives. Good luck!'
+}
+
+export {revealLetter, showError, mistakeDisplay, guessResultDisplay, guessResultDisplayEnding}

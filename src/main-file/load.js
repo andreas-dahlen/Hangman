@@ -15,7 +15,7 @@ function getRandomWord() {
 }
 
 //creates 1 div element with 2 p elements inside (1 letter in the word)
-function createLetterSlot(letter, index) {
+function createLetterSlot(letter) {
     const divElement = document.createElement('div');
         divElement.classList.add('letter-slot');
         
@@ -26,9 +26,10 @@ function createLetterSlot(letter, index) {
         const letterElement = document.createElement('p')
         letterElement.classList.add('individual-letter', 'hidden')
         letterElement.textContent = letter
-
-        divElement.appendChild(underscoreElement)
+        
         divElement.appendChild(letterElement)
+        divElement.appendChild(underscoreElement)
+        
 
         return divElement
 }
@@ -40,7 +41,7 @@ function gameLetterDisplay() {
     display.innerHTML = '';
 
     letterArray.forEach((letter, i) => {
-        const divElement = createLetterSlot(letter, i)
+        const divElement = createLetterSlot(letter)
         display.appendChild(divElement)       
     })
 }
@@ -53,11 +54,26 @@ function loadEventListeners() {
 //resets and starts the game
 function newGame() {
     resetGameState()
-    const word = getRandomWord()
+    const word = getLongestWord()
+    //TODO: RESET THIS TO GETRANDOM WORD! THIS IS FOR CSS TESTING
     setWord(word)
     gameLetterDisplay()
     setTimeAndDate()
     showOverlay('name')
 }
 
-export { newGame, loadEventListeners }
+
+//TODO: DELETE THIS FUNCTION!
+function getLongestWord() {
+    let longest = ''
+
+    for(const word of wordList) {
+        const cleaned = word.toLowerCase().trim()
+        if (cleaned.length > longest.length) {
+            longest = cleaned;
+        }
+    }
+    return longest
+}
+
+export { newGame, loadEventListeners}
