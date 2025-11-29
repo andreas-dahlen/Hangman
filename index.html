@@ -6,101 +6,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hang Man Game</title>
 
-    <link rel="stylesheet" href="./assets/css/index.css">
-    <link rel="stylesheet" href="./assets/css/lose-display.css">
-    <link rel="stylesheet" href="./assets/css/player-creation.css">
-    <link rel="stylesheet" href="./assets/css/win-display.css">
+    <link rel="stylesheet" href="./assets/css/global.css">
     <link rel="stylesheet" href="./assets/css/scoreBoard.css">
-    <link rel="stylesheet" href="./assets/css/overlayName.css">
-
+    <link rel="stylesheet" href="./assets/css/forAllOverlays.css">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/gameDisplay.css">
     <script type="module" src="./src/main-file/main.js"></script>
-    <!-- this will only link to one JS file later!!! this is just for some testing xD -->
-     <script type="module" src="./src/storage-file/wordList.js"></script>
-    <!-- Link to JS wordlist in wordList.js. /Emma -->
-    <script type="module" src="game-logic-file/rightGuess.js"></script>
-    <!-- Link to JS wordlist in rightGuess.js. /Emma -->
+
 </head>
 
 <body>
 
     <header>
-        <img src="" alt="">
+        <div class="logo">
+        <img src="./assets/images/cowboymelon.png" alt="ss">
+        </div>
         <h1>Hang Man</h1>
-        <nav>Scoreboard</nav>
+        <nav class="score-board-button">
+            <span> Scoreboard</span>
+        </nav>
     </header>
 
     <main>
-        <section class="game-view">
+        <section class="game-section">
 
             <!-- <div class="change-user"></div> -->
 
-
-            <div>
-                <div class="wrong-guesses-display"></div>
-                <div class="hangman-display">
-                    <img src="./assets/images/mall.jpg" alt="PLACEHOLDER CURRENTLY!">
-                </div>
+            <div class="guess-result-display">
+                <h2 class="guess-message"> Guess an entire English word or individual letter. You have six lives. Good luck!</h2>
             </div>
 
-            <div class="guess-result-display"></div>
+            <div class="game-view">
+                <div class="spacer"></div>
+                    <div class="hangman-display">
+                        <img src="./assets/images/western-theme.jpg" alt="hangman background" class="hangman-background">
+                    </div>
+                <div class="wrong-guess-display"></div>
+            </div>
 
-            <div class="game-letter-display"></div>
-            <input name="guess-time" type="text" class="guess-bar" placeholder="Guess a letter">
-
-
-
+            <div class="game-control-box">
+                <div class="game-letter-display"></div>
+                <p id="input-error" class="error-msg error-game-msg hidden"></p>
+                <input name="guess-time" type="text" class="guess-bar" placeholder="Guess a letter or a word">
+            </div>
         </section>
 
-        <!-- <section class="name-creator-display">
-
-        </section> -->
-
-        <section class="overlayNameDisplay" id="overlayNameDisplay">
-            <div class="overlay-backdrop" id="overlay-name">
+        <section class="overlay-name-display">
+            <div class="overlay-backdrop">
                 <div class="overlay-card">
 
-                    <label for="nameInput">Name:</label>
-                    <input type="text" id="nameInput" placeholder="Name your player" />
+                    <label for="nameInput">Welcome!</label>
+                    <input type="text" id="nameInput" class="name-input" placeholder="Name your player" />
+                    
+                    <p id="error" class="error-msg hidden">Enter a name to continue!</p>
 
                     <button id="startButton" class="button">Start game</button>
 
-                    <p id="error" class="error" hidden>Enter a name to continue!</p>
+
                 </div>
             </div>
         </section>
 
-        <section class="scoreBoard-display">
-        
-            <h2>Scoreboard</h2>
-            <div class="scoreBoard-name" id="scoreBoardName">Name:
-        
+        <section class="scoreboard-display">
+            <div class="overlay-backdrop">
+                <div class="overlay-card">
+                    <h2>Scoreboard</h2>
+                    <div class="sorting-buttons">
+                    <button class="sort-by-guesses">Sort by guesses</button>
+                    <button class="sort-by-time-date">Sort by time/date</button>
+                    </div>
+                    <div class="scoreboard-dom"></div>
+                    <button class="close-scoreboard">Close</button>
+                </div>
             </div>
-        
-            <div class="scoreBoard-guesses" id="scoreBoard-guesses">Guesses:</div>
-            <div class="scoreBoard-word-lengt" id="scoreBoard-word-lengt">word lengt:</div>
-            <div class="scoreBoard-time" id="scoreBoard-time">Time:</div>
-            <div class="scoreBoard-date" id="scoreBoard-date">Date:</div>
-            <div class="scoreBoard-status" id="scoreBoard-status">Status:</div>
-        
         </section>
 
         <section class="winner-display">
-            <h2>Congratulations!</h2>
-            <div class="overlay-card">
-                <h3>Players Name: </h3>
-                <p>Wrong guesses: </p>
-                <p>Word length: </p>
-                <p>date and time: </p>
+            <div class="overlay-backdrop">
+                <div class="overlay-card">
+                    <h2>Congratulations! ${gameState.currentUser}, you won!</h2>
+                    <!-- innehållet i NÄSTAN ALLT borde komma från JS -->
+                    <!-- player är gameState:currentUser -->
+                    <h3 id="correct-word"></h3>
+                    <p>Wrong guesses: </p>
+                    <!-- om man vill kan man ha accuracy och score -->
+                    <!--button till scoreboard-->
+                    <!--button till nytt spel med startNewGameButton-->
+                    <!-- Alla knappar finns i filen buttons.js-->
+                </div>
             </div>
         </section>
 
         <section class="loser-display">
-            <h2>Too bad! Better luck next time!</h2>
-            <div class="overlay-card">
-                <h3>Players Name: </h3>
-                <p>Wrong guesses: </p>
-                <p>Word length: </p>
-                <p>date and time: </p>
+            <div class="overlay-backdrop">
+                <div class="overlay-card">
+                    <h2>You lose! Better luck next time player! </h2>
+                    <!-- innehållet i NÄSTAN ALLT borde komma från JS -->
+                    <!-- player är gameState:currentUser -->
+                    <h3 id="correct-word"></h3>
+                    <p>Wrong guesses: </p>
+                    <!-- om man vill kan man ha accuracy och score -->
+                    <!--button till scoreboard med klassen score-board-button-->
+                    <!--button till nytt spel med klassen new-game-button-->
+                    <!-- Alla knappar finns i filen buttons.js-->
+                </div>
             </div>
         </section>
     </main>

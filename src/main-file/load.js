@@ -2,35 +2,20 @@
 
 //väljer ut ett random ord i Arrayn
 
+import { gameState, resetGameState, setWord, setTimeAndDate } from "../storage-file/currentGameState.js";
+//importera även timeLog
 import { wordList } from "../storage-file/wordList.js";
+import { showOverlay} from "../display-file/overlayDecider.js"
+import { scoreBoardButton } from './buttons.js'
 
-// console.log(wordList)
-// 
-
-// function letterArray(word) {
-//     const letters = {}
-//     for (let i = 0; i < word.length; i++) {
-//         letters["letter" + (i + 1)] = word[i];
-//     }
-//     console.log(letters)
-//     return letters
-// }
-
+//generates a random word
 function getRandomWord() {
-    const word = wordList[Math.floor(Math.random() * wordList.length)]
+    const word = wordList[Math.floor(Math.random() * wordList.length)].toLowerCase().trim()
     return word
 }
 
-let currentWord = ''
-let currentLetterArray = []
-
-function newWordArray() {
-    currentWord = getRandomWord()
-    currentLetterArray = [...currentWord]
-    return currentLetterArray
-}
-
-function createLetterSlot(letter, index) {
+//creates 1 div element with 2 p elements inside (1 letter in the word)
+function createLetterSlot(letter) {
     const divElement = document.createElement('div');
         divElement.classList.add('letter-slot');
         
@@ -39,37 +24,56 @@ function createLetterSlot(letter, index) {
         underscoreElement.textContent='_'
 
         const letterElement = document.createElement('p')
-        letterElement.classList.add('individual-letter', 'hidden-letter')
+        letterElement.classList.add('individual-letter', 'hidden')
         letterElement.textContent = letter
-        letterElement.dataset.index = index
-
-        divElement.appendChild(underscoreElement)
+        
         divElement.appendChild(letterElement)
+        divElement.appendChild(underscoreElement)
+        
 
         return divElement
 }
 
+//calls the function above to generate all div elements for word display
 function gameLetterDisplay() {
-    const letterArray = currentLetterArray;
+    const letterArray = gameState.currentLetterArray;
     const display = document.querySelector('.game-letter-display')
     display.innerHTML = '';
 
     letterArray.forEach((letter, i) => {
-        const divElement = createLetterSlot(letter, i)
+        const divElement = createLetterSlot(letter)
         display.appendChild(divElement)       
+    })
+}
+
+function loadEventListeners() {
+    scoreBoardButton()
+
+}
+
+//resets and starts the game
+function newGame() {
+    resetGameState()
+    const word = getLongestWord()
+    //TODO: RESET THIS TO GETRANDOM WORD! THIS IS FOR CSS TESTING
+    setWord(word)
+    gameLetterDisplay()
+    setTimeAndDate()
+    showOverlay('name')
+}
+
+
+//TODO: DELETE THIS FUNCTION!
+function getLongestWord() {
+    let longest = ''
+
+    for(const word of wordList) {
+        const cleaned = word.toLowerCase().trim()
+        if (cleaned.length > longest.length) {
+            longest = cleaned;
+        }
     }
-    
-)};
+    return longest
+}
 
-
-export { gameLetterDisplay, newWordArray, currentLetterArray, currentWord }
-
-// const button = document.querySelector('button')
-// const wordParagraph = document.createElement('p')
-   
-//     button.addEventListener('click', () => {
-//         const word = randomWord()
-//         const wordParagraph = document.createElement('p')
-// wordParagraph.textContent = word;
-// document.body.appendChild(wordParagraph);
-// })
+export { newGame, loadEventListeners}

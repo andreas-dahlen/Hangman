@@ -1,43 +1,88 @@
-.scoreBoard-display {
+.scoreboard-display .overlay-card {
   display: grid;
   justify-content: stretch;
-  border: 1px solid black;
+  background: linear-gradient(to bottom, rgb(255, 166, 0), rgb(228, 83, 0));
+  color: rgb(27, 49, 8);
+  border: 1px solid rgb(16, 15, 15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
   width: 20em;
-  height: 25em;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding-right: 10px;
+  padding-top: 10px;
 }
 
-.scoreBoard-name {
-  border: 1px solid hotpink;
+.scoreboard-display p {
+  border: 1px solid rgb(27, 57, 2);
+  background-color: rgb(217, 208, 208);
+  border-radius: 10px;
   margin: 5px;
   padding: 3px;
 }
 
-.scoreBoard-guesses {
-  border: 1px solid hotpink;
+.sort-by-guesses {
+  border-radius: 10px;
+  margin-bottom: 5px;
+  max-width: 6em;
+}
+
+.sort-by-time-date {
+  border-radius: 10px;
+  margin-bottom: 5px;
+  max-width: 6em;
+}
+
+.sorting-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 3px;
+}
+
+.sorting-buttons button {
+  flex: 1;
+  /* kortform som som hänvisar till grow, shrink och basis */
+  height: 35px;
+  border-radius: 10px;
+
+  background-color: rgb(217, 208, 208);
+}
+
+.close-scoreboard {
+  border: 1px solid rgb(27, 57, 2);
+  background-color: rgb(241, 74, 45);
+  border-radius: 10px;
   margin: 5px;
   padding: 3px;
 }
 
-.scoreBoard-word-lengt {
-  border: 1px solid hotpink;
-  margin: 5px;
-  padding: 3px;
+.overlay-end {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
 }
 
-.scoreBoard-time {
-  border: 1px solid hotpink;
-  margin: 5px;
-  padding: 3px;
+.overlay-card {
+  background: #222;
+  padding: 20px 30px;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  min-width: 250px;
 }
 
-.scoreBoard-date {
-  border: 1px solid hotpink;
-  margin: 5px;
-  padding: 3px;
-}
-
-.scoreBoard-status {
-  border: 1px solid hotpink;
-  margin: 5px;
-  padding: 3px;
-}
+.newgame-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+} /* CSS inlagd för overlayUi.js //Emma */

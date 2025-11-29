@@ -1,0 +1,44 @@
+.overlay-backdrop {
+  position: fixed;
+  inset: 0px; 
+  /*TODO: ändra tillbaka när färdig. Ändrade från 0 för att komma åt scoreboard butten*/
+  background: rgba(0, 0, 0, 0.621);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.overlay-card {
+  background: linear-gradient(to bottom, rgb(255, 166, 0), rgb(228, 83, 0));
+  padding: 30px;
+  width: 340px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: 1em;
+  border-radius: 10px;
+}
+
+label {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+.name-input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #bdbcbc;
+  margin: 10px 0;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hide {
+    display: none !important;
+}
+

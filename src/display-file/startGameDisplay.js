@@ -1,1 +1,0 @@
-//Om vi får tid skulle vi kunna ha en start sida där man iprincip bara kan klicka på starta ett nytt spel.
