@@ -23,8 +23,8 @@
         </div>
         <h1>Hang Man</h1>
         <nav>
-            <span class="restart-button button">Restart</span>
-            <span class="score-board-button button"> Scoreboard</span>
+            <span class="restart-button button button-style">Restart</span>
+            <span class="score-board-button button button-style"> Scoreboard</span>
         </nav>
     </header>
 
@@ -39,8 +39,14 @@
                 <div class="spacer"></div>
                     <div class="hangman-display">
                         <img src="./assets/images/western-theme.jpg" alt="hangman background" class="hangman-background">
+                        <img src="./assets/images/hangman-noose.svg" alt="the noose" class="the-noose">
+                        <div class="hangman-pieces" >
+                            
+                        </div>
                     </div>
-                <div class="wrong-guess-display"></div>
+                <div class="wrong-guess-display">
+                    <h3>Wrong Guesses</h3>
+                </div>
             </div>
 
             <div class="game-control-box">
@@ -67,10 +73,11 @@
         <section class="scoreboard-display">
             <div class="overlay-backdrop">
                 <div class="overlay-card">
+                    <button class="hide-overlays-button close-scoreboard close-adjust">Close</button>
                     <h2>Scoreboard</h2>
                     <div class="sorting-buttons">
-                    <button class="sort-by-guesses">Sort by guesses</button>
-                    <button class="sort-by-time-date">Sort by time/date</button>
+                    <button class="sort-by-guesses selected">Sort by guesses</button>
+                    <button class="sort-by-time-date not-selected">Sort by time/date</button>
                     </div>
                     <div class="scoreboard-dom"></div>
                     <button class="hide-overlays-button close-scoreboard">Close</button>
@@ -80,33 +87,13 @@
 
         <section class="winner-display">
             <div class="overlay-backdrop">
-                <div class="winner-dom">
-                    <h2>Congratulations! ${gameState.currentUser}, you won!</h2>
-                    <!-- innehållet i NÄSTAN ALLT borde komma från JS -->
-                    <!-- player är gameState:currentUser -->
-                    <h3 id="correct-word"></h3>
-                    <p>Wrong guesses: </p>
-                    <!-- om man vill kan man ha accuracy och score -->
-                    <!--button till scoreboard-->
-                    <!--button till nytt spel med hideOverlaysButton-->
-                    <!-- Alla knappar finns i filen buttons.js-->
-                </div>
+                <div class="winner-dom"></div>
             </div>
         </section>
 
         <section class="loser-display">
             <div class="overlay-backdrop">
-                <div class="loser-dom">
-                    <h2>You lose! Better luck next time player! </h2>
-                    <!-- innehållet i NÄSTAN ALLT borde komma från JS -->
-                    <!-- player är gameState:currentUser -->
-                    <h3 id="correct-word"></h3>
-                    <p>Wrong guesses: </p>
-                    <!-- om man vill kan man ha accuracy och score -->
-                    <!--button till scoreboard med klassen score-board-button-->
-                    <!--button till nytt spel med klassen hide-overlays-button-->
-                    <!-- Alla knappar finns i filen buttons.js-->
-                </div>
+                <div class="loser-dom"></div>
             </div>
         </section>
     </main>
