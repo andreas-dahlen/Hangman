@@ -22,14 +22,28 @@ function scoreBoardButton() {
 
     sortGuessesButton.addEventListener('click', () => {
         //10. varje knapp har en click-listener som fyller sorterad info till scoreBoarden
+
+        toggleButton(sortGuessesButton, sortTimeButton)
+
         populateScoreboard('guesses');
     });
 
     sortTimeButton.addEventListener('click', () => {
+
+        toggleButton(sortTimeButton, sortGuessesButton)
+
         populateScoreboard('date');
     });
 
     hideOverlaysButton()
+}
+
+function toggleButton(selected, unselected) {
+    selected.classList.add('selected')
+    selected.classList.remove('not-selected')
+
+    unselected.classList.add('not-selected')
+    unselected.classList.remove('selected')
 }
 
 //starta nytt spel knapp

@@ -18,4 +18,6 @@ function showOverlay(type) {
     el.classList.remove('hide')
 }
 
+//TODO: need to disable input field
+
 export {hideAllOverlays, showOverlay}

@@ -28,18 +28,23 @@ header {
         white-space: nowrap;    
         background-color: rgba(146, 190, 79, 0.837);
         padding: 10px;
+        margin-left: 10px;
         border-radius: 8px;
         cursor: pointer;
         filter: drop-shadow(2px 2px 2px rgb(0, 0, 0));
     }
 }
 
-@media (max-width: 470px) {
+nav {
+}
+
+@media (max-width: 700px) {
     header {
         flex-direction: column;
         justify-content: center;
         height: auto;
-        padding: 1.5em;
+        padding: 2em;
+        gap: 2em;
     }
 
     h1 {
@@ -47,6 +52,6 @@ header {
     }
 
     .button-style {
-        margin-top: 3em;
+        margin-top: 100em;
     }
 }

@@ -3,11 +3,8 @@ import { showOverlay } from './overlayDecider.js';
 import {loadEventListeners } from '../main-file/buttons.js'
  
 function createEndOverlay(title) {
-  const overlay = document.createElement('div');
-  overlay.classList.add('overlay-end');
-  
   const card = document.createElement('div');
-  card.classList.add('overlay-card');
+  card.classList.add('overlay-card', 'overlay-end');
 
   const h2 = document.createElement('h2');
   h2.textContent = title;
@@ -35,24 +32,24 @@ function createEndOverlay(title) {
   card.appendChild(accuracyP);
   card.appendChild(scoreP);
   card.appendChild(btn);
-  overlay.appendChild(card);
+  // overlay.appendChild(card);
 
-  return overlay;
+  return card;
 }
 
 
 function showWinOverlay() {
   const pos = document.querySelector('.winner-dom')
-  const overlay = createEndOverlay(`Congratulations! 🎉 ${gameState.currentUser} you won!`);
-  pos.appendChild(overlay);
+  const card = createEndOverlay(`Congratulations! 🎉 ${gameState.currentUser} you won!`);
+  pos.appendChild(card);
   showOverlay('winner')
   loadEventListeners('restartbutton')
 }
 
 function showLoseOverlay() {
   const pos = document.querySelector('.loser-dom')
-  const overlay = createEndOverlay(`You Lost 😢 Better luck next time ${gameState.currentUser}`);
-  pos.appendChild(overlay);
+  const card = createEndOverlay(`You Lost 😢 Better luck next time ${gameState.currentUser}`);
+  pos.appendChild(card);
   showOverlay('loser')
   loadEventListeners('restartbutton')
 }
