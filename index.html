@@ -3,9 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hang Man Game</title>
+
+    <link rel="stylesheet" href="./assets/css/global.css">
+    <link rel="stylesheet" href="./assets/css/scoreBoard.css">
+    <link rel="stylesheet" href="./assets/css/forAllOverlays.css">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/gameDisplay.css">
+    <script type="module" src="./src/main-file/main.js"></script>
+
 </head>
 <body>
-    
+
+    <header>
+        <div class="logo">
+        <img src="./assets/images/cowboymelon.png" alt="ss">
+        </div>
+        <h1>Hang Man</h1>
+        <nav>
+            <span class="restart-button button button-style">Restart</span>
+            <span class="score-board-button button button-style"> Scoreboard</span>
+        </nav>
+    </header>
+
+    <main>
+        <section class="game-section">
+
+            <div class="guess-result-display">
+                <h2 class="guess-message"> Guess an entire English word or individual letter. You have six lives. Good luck!</h2>
+            </div>
+
+            <div class="game-view">
+                <div class="spacer"></div>
+                    <div class="hangman-display">
+                        <img src="./assets/images/western-theme.jpg" alt="hangman background" class="hangman-background">
+                        <img src="./assets/images/hangman-noose.svg" alt="the noose" class="the-noose">
+                        <div class="hangman-pieces" >
+                            
+                        </div>
+                    </div>
+                <div class="wrong-guess-box">
+                    <h3>Wrong Guesses</h3>
+                    <div class="wrong-guess-display"></div>
+                </div>
+            </div>
+
+            <div class="game-control-box">
+                <div class="game-letter-display"></div>
+                <p id="input-error" class="error-msg error-game-msg hidden"></p>
+                <input name="guess-time" type="text" class="guess-bar" placeholder="Guess a letter or a word">
+            </div>
+        </section>
+
+        <section class="overlay-name-display">
+            <div class="overlay-backdrop">
+                <div class="overlay-card">
+
+                    <label for="nameInput">Welcome!</label>
+                    <input type="text" id="nameInput" class="name-input" placeholder="Name your player" />
+                    
+                    <p id="error" class="error-msg hidden">Enter a name to continue!</p>
+
+                    <button id="startButton" class="button">Start game</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="scoreboard-display">
+            <div class="overlay-backdrop">
+                <div class="overlay-card">
+                    <button class="hide-overlays-button close-scoreboard close-adjust">Close</button>
+                    <h2>Scoreboard</h2>
+                    <div class="sorting-buttons">
+                    <button class="sort-by-guesses selected">Sort by guesses</button>
+                    <button class="sort-by-time-date not-selected">Sort by time/date</button>
+                    </div>
+                    <div class="scoreboard-dom"></div>
+                    <button class="hide-overlays-button close-scoreboard">Close</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="winner-display">
+            <div class="overlay-backdrop">
+                <div class="winner-dom"></div>
+            </div>
+        </section>
+
+        <section class="loser-display">
+            <div class="overlay-backdrop">
+                <div class="loser-dom"></div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
