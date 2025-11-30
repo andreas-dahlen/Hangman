@@ -9,7 +9,6 @@ const hangman = [
 
 function hangmanReveal(mistake) {
     const makeHangman = document.querySelector('.hangman-display')
-    //TODO: SKAPA ETT DIV ELEMENT OCH STOPPA BILDERNA INDIVIDUELLT!
      const img = document.createElement('img');
 
     img.src = `../../assets/images/${hangman[mistake]}.svg`;

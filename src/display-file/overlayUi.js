@@ -20,11 +20,14 @@ function createEndOverlay(title) {
   
     const scoreP = document.createElement('p')
     scoreP.textContent = `score: ${gameState.score}`
-  
+
   const btn = document.createElement('button');
   btn.textContent = 'New Game';
   btn.classList.add('button', 'restart-button');
 
+  const btnScoreboard = document.createElement('button');
+  btnScoreboard.textContent = 'Scoreboard';
+  btnScoreboard.classList.add('button', 'score-board-button');
 
   card.appendChild(h2);
   card.appendChild(pWord);
@@ -32,8 +35,7 @@ function createEndOverlay(title) {
   card.appendChild(accuracyP);
   card.appendChild(scoreP);
   card.appendChild(btn);
-  // overlay.appendChild(card);
-
+  card.appendChild(btnScoreboard);
   return card;
 }
 
@@ -44,6 +46,7 @@ function showWinOverlay() {
   pos.appendChild(card);
   showOverlay('winner')
   loadEventListeners('restartbutton')
+  loadEventListeners('scoreboardbutton')
 }
 
 function showLoseOverlay() {
@@ -52,10 +55,8 @@ function showLoseOverlay() {
   pos.appendChild(card);
   showOverlay('loser')
   loadEventListeners('restartbutton')
+  loadEventListeners('scoreboardbutton')
 }
-
-
-
 
 function showScoreBoard() {
     leaderboard.sort((a, b) => {

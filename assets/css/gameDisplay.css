@@ -1,7 +1,4 @@
 
-/* .hangman-background, .hangman-img {
-    size: 100px;
-} */
 .game-section {
     display: flex;
     flex-direction: column;
@@ -26,15 +23,6 @@
     display: flex;
     align-items: center;
     position: relative;
-}
-
-@media (max-width: 1320px) {
-    .game-view {
-        flex-direction: column;
-    }
-    .spacer {
-        display: none;
-    }
 }
 
 .hangman-display {
@@ -68,25 +56,67 @@
     object-fit: contain;
 }
 
-.spacer, .wrong-guess-display {
-    width: 150px;
-    height: 150px;
-    padding: 10px;
-    margin: 2em;
-} 
-
-.wrong-guess-display, .game-control-box {
+.wrong-guess-box, .game-control-box {
     border-radius: 10px;
     border: 1px solid black;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     background-color: rgba(146, 190, 79, 0.837);
     cursor: default;
     h3 {
+        text-align: center;
         color:white;
         filter: drop-shadow(2px 1px 1px rgb(0, 0, 0));
     }
 }
 
+.spacer, .wrong-guess-box {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 2em;
+} 
+
+.wrong-guess-display {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 60px);
+    margin-top: 10px;
+}
+@media (max-width: 1320px) {
+    .wrong-guess-display {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(1, 60px);
+        margin-top: 10px;
+    }
+    .game-view {
+        flex-direction: column;
+    }
+    .spacer {
+        display: none;
+    }
+    .wrong-guess-box {
+        width: 300px;
+        height: 100px;
+    }
+}
+
+.wrong-guess-object {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 2.5em;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.wrong-guess-object img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
 
 .game-control-box {
     display: flex;
@@ -120,9 +150,9 @@
     }
 }
 
-    .underscore {
+.underscore {
     position: absolute;
-    bottom: 0;
+    top: 7px;
     left: 0;
     right: 0;
     text-align: center;
@@ -131,12 +161,9 @@
 }
 
 .error-game-msg {
-    /* padding-top: 1em; */
     min-height: 2em;
-        font-size: clamp(1rem, 4vw, 2em);
-    /* align-self: center; */
+    font-size: clamp(1rem, 4vw, 2em);
 }
-
 
 .guess-bar {
     width: 100%;
@@ -151,5 +178,3 @@
     box-sizing: border-box;
     text-align: center;
 }
-
-/* gameslot might need a clamp */

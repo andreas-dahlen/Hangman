@@ -6,15 +6,17 @@ import { newGame } from './load.js';
 //scorebordbutten i headern
 function scoreBoardButton() {
 
-    const openScoreButton = document.querySelector(".score-board-button");
+    const openScoreButton = document.querySelectorAll(".score-board-button");
     //3. hämtar element i DOM som ska öppna scoreBoarden (knapp finns i headern)
 
-    openScoreButton.addEventListener('click', () => {
-        //4. på elementet beskrivet i 3.läggs en click-event listener
-        showOverlay('scoreboard');
-        //5. när den klickas visas scoreBoard-overlay
-        populateScoreboard('guesses');
-        //6. och fyller overlayen med 10 toplista med info sorterat efter gissningar
+    openScoreButton.forEach(button => {
+    //4. på elementet beskrivet i 3.läggs en click-event listener  
+        button.addEventListener('click', () => {
+            //5. när den klickas visas scoreBoard-overlay
+            showOverlay('scoreboard');
+            //6. och fyller overlayen med 10 toplista med info sorterat efter gissningar
+            populateScoreboard('guesses');
+        });
     });
 
     const sortGuessesButton = document.querySelector('.sort-by-guesses');
@@ -75,7 +77,13 @@ function handleNameInput() {
 
     if (!name) {
       //3. om spelaren inte skrivit något namn visas ett felmeddelande genom att ta bort hidden.
-      error.classList.remove('hidden')                     
+      error.classList.remove('hidden')  
+      
+      clearTimeout(window._errorTimeout)
+
+      window._errorTimeout = setTimeout(() => {
+        error.classList.add('hidden')
+      }, 4000)
       return;
       //4. return stoppar koden så den inte fortsätter köras.
     }
@@ -88,8 +96,6 @@ function handleNameInput() {
     //7. kör funktionen som lägger till eventListeners till scorborden (knapp för att öppna scoreboard, knapp för att sortera gissningar/tid datum.)
   });
 }
-
-//TODO: ANDREAS lägg till en timer.
 
 function restart() {
     const restartButtons = document.querySelectorAll('.restart-button');

@@ -23,14 +23,13 @@
   box-sizing: border-box;
 }
 
-.btn:hover {
-  background: #1d4ed8;
+.button:hover, .sort-by-guesses:hover, .sort-by-time-date:hover, .close-scoreboard:hover {
+  background: #f5c800;
 }
 
 h2 {
   display: flex;
   justify-content: center;
-  /* TODO: BETTER STYLE MORE COOL */
 }
 
 .error-msg {
