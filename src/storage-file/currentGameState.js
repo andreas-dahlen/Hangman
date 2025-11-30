@@ -6,14 +6,14 @@ const gameState = {
     guessIteration: 0,
     correctGuesses: 0,
     mistakes: 0,
-    maxMistakes: 6,
     currentUser: '',
     winState: '', //samma som när användaren ser result:
     time: '',
     date: '',
     accuracy: '',
-    score: ''
-};
+    score: '',
+    maxMistakes: 6
+}
 
 function resetGameState() {
     gameState.currentWord = "";
@@ -23,51 +23,13 @@ function resetGameState() {
     gameState.guessIteration = 0;
     gameState.correctGuesses = 0;
     gameState.mistakes = 0;
-    // maxMistakes = 6; //om det finns tid för difficulty så anropar denna en funktion som hanterar det.
     gameState.currentUser = setUser(),
     gameState.winState = '',
     gameState.time = '',
     gameState.date = '',
     gameState.accuracy = '',
     gameState.score = ''
-
-    //TODO: both of these need to be in gameState and stuff...
-
-    //TODO: accuracy (currectguess / total guesses) * 100
-
 }
-
-//MAKE TODO: currentWord, 
-// currentLetterArray, 
-// guessedLetters, 
-// guessedWords, 
-// ittirationCounter, 
-// correctGuesses, 
-// mistakes, 
-// maxMistakes, 
-// currentUser, 
-// winState, 
-// accuracy, (this needs an extra step of calculation total guesses inside of its function)
-//score,
-//time,
-// date
-
-
-//CHATGPT EXAMPLE:
-// const result = {
-//     user: gameState.currentUser,
-//     word: gameState.currentWord,
-//     wordLength: gameState.currentWord.length,
-//     mistakes: gameState.mistakes,
-//     correct: gameState.howManyTimesYouAtuallyGuessedCorrectly,
-//     totalGuesses: gameState.howManyTimesYouAtuallyGuessedCorrectly + gameState.mistakes,
-//     accuracy: (gameState.howManyTimesYouAtuallyGuessedCorrectly /
-//               (gameState.howManyTimesYouAtuallyGuessedCorrectly + gameState.mistakes)) * 100,
-//     score: (gameState.currentWord.length * 10) - (gameState.mistakes * 5),
-//     setWinState: gameState.winState,
-//     date: Date.now()
-// };
-
 
 function setWord(word) {
     gameState.currentWord = word;
@@ -79,17 +41,25 @@ function setUser(name) {
 }
 
 function setWinState(state) {
-    if (state)
-    gameState.winState = 'Win!'
+    if (state === true) {
+        gameState.winState = 'Win!'
+    }
     else
-        gameState.winState = 'You lost!'
+        gameState.winState = 'lost!'
 }
 
-//TODO: function accuracy
+function setAccuracy() {
+    const totalGuesses = gameState.correctGuesses + gameState.mistakes;
+    const accuracyPercent = (gameState.correctGuesses / totalGuesses) * 100;
+    gameState.accuracy = Math.round(accuracyPercent) + '%';
+}
 
-//TODO: function score
+function setScore() {
+    const baseScore = gameState.currentWord.length * 10;
+    const penalty = gameState.mistakes * 5;
 
-
+    gameState.score = Math.max(baseScore - penalty, 0);
+}
 
 //adds time into gameState.time
 //adds date into gameState.date
@@ -111,5 +81,7 @@ export {
     setWord, 
     setUser,
     setWinState,
-    setTimeAndDate
+    setTimeAndDate,
+    setAccuracy,
+    setScore
 };

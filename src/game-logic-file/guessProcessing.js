@@ -1,4 +1,4 @@
-import { gameState, setWinState } from '../storage-file/currentGameState.js'
+import { gameState, setWinState, setAccuracy, setScore} from '../storage-file/currentGameState.js'
 import { revealLetter, mistakeDisplay, guessResultDisplay, guessResultDisplayEnding} from './domCreator.js'
 import { hangmanReveal } from './hangManDisplay.js'
 import { populateScoreboard } from "../storage-file/scoreBoardDomCreator.js";
@@ -22,6 +22,7 @@ function processLetter(letter) {
         gameState.mistakes++
         guessResultDisplay(false)
     } else {
+        gameState.correctGuesses++
         guessResultDisplay(true)
     }
 }
@@ -30,6 +31,8 @@ function processWord(word) {
 
     if (word === gameState.currentWord) {
         guessResultDisplay(true)
+
+        gameState.correctGuesses++
 
         gameState.currentLetterArray.forEach((_, i) => revealLetter(i));
         gameState.guessIteration = gameState.currentWord.length;
@@ -58,25 +61,23 @@ function checkGuess (guess) {
     }    
     //check if you've lost
     if (gameState.mistakes >= gameState.maxMistakes) {
-        console.log('you lost')
-        showLoseOverlay(); // För förlust /Emma
         setWinState(false)
-        guessResultDisplayEnding()
-        storeScoreboard();
-        //lagrar gameState när spelaren har vunnit eller förlorat
-        populateScoreboard();
-        
+        setAccuracy()
+        setScore()
+        storeScoreboard();//lagrar gameState när spelaren har vunnit eller förlorat
+        showLoseOverlay(); // För förlust /Emma
+        guessResultDisplayEnding() 
+        populateScoreboard();   
     }
     //check if you've won
     else if (gameState.guessIteration >= gameState.currentWord.length) {
-        console.log('you won')
-        showWinOverlay(); // För vinst /Emma
         setWinState(true)
+        setAccuracy()
+        setScore()
+        storeScoreboard(); //lagrar gameState när spelaren har vunnit eller förlorat
+        showWinOverlay(); // För vinst /Emma
         guessResultDisplayEnding()
-        storeScoreboard();                                                      //lagrar gameState när spelaren har vunnit eller förlorat
         populateScoreboard();
-
-
     }
 }
 export { checkGuess }

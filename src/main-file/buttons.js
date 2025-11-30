@@ -95,6 +95,11 @@ function handleNameInput() {
     scoreBoardButton()
     //7. kör funktionen som lägger till eventListeners till scorborden (knapp för att öppna scoreboard, knapp för att sortera gissningar/tid datum.)
   });
+  nameInput.addEventListener('keydown', (e) => {
+    if (e.key === "Enter") {
+      startButton.click();   // ← triggers the existing logic with zero changes
+    }
+  });
 }
 
 function restart() {
