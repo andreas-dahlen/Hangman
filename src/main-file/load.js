@@ -49,7 +49,7 @@ function resetAllDomsByClass() {
   const classesToRemove = [
     'overlay-end',
     'hangman-img',
-    'wrong-guess-container',
+    'wrong-guess-object',
     'letter-slot'
   ];
 
@@ -63,8 +63,7 @@ function resetAllDomsByClass() {
 function newGame() {
     resetGameState()
     resetAllDomsByClass()
-    const word = getLongestWord()
-    //TODO: RESET THIS TO GETRANDOM WORD! THIS IS FOR CSS TESTING
+    const word = getRandomWord()
     setWord(word)
     gameLetterDisplay()
     setTimeAndDate()
@@ -76,17 +75,17 @@ function newGame() {
 }
 
 
-//TODO: DELETE THIS FUNCTION!
-function getLongestWord() {
-    let longest = ''
+//Function for testing CSS style for the longest word.
+// function getLongestWord() {
+//     let longest = ''
 
-    for(const word of wordList) {
-        const cleaned = word.toLowerCase().trim()
-        if (cleaned.length > longest.length) {
-            longest = cleaned;
-        }
-    }
-    return longest
-}
+//     for(const word of wordList) {
+//         const cleaned = word.toLowerCase().trim()
+//         if (cleaned.length > longest.length) {
+//             longest = cleaned;
+//         }
+//     }
+//     return longest
+// }
 
 export { newGame, resetAllDomsByClass }

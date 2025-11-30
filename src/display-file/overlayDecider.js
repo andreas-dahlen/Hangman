@@ -9,6 +9,7 @@ function hideAllOverlays() {
     Object.values(overlays).forEach(el => {
         el.classList.add('hide');
     })
+    document.querySelector('.guess-bar').disabled = false;
 }
 
 function showOverlay(type) {
@@ -16,8 +17,7 @@ function showOverlay(type) {
 
     const el = overlays[type]
     el.classList.remove('hide')
+    document.querySelector('.guess-bar').disabled = true;
 }
-
-//TODO: need to disable input field
 
 export {hideAllOverlays, showOverlay}

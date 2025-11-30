@@ -22,26 +22,23 @@ function showError(message) {
 //puts words in the mistakeDisplay
 function mistakeDisplay(input) {
 
-    const container = document.createElement('div')
-    container.classList.add('wrong-guess-container')
-
     const pos = document.querySelector('.wrong-guess-display')
-
+    const divider = document.createElement('div')
+    divider.classList.add('wrong-guess-object')
+    
     if (input ==='') {
-
- const img = document.createElement('img');
-        img.src = './path/to/your/image.png';   // <-- change this
+        const img = document.createElement('img');
+        img.src = '../../assets/images/cowboymelon.png';
         img.alt = 'Wrong word guess';
-        img.classList.add('wrong-guess-img');    // optional for styling
-        container.appendChild(img);
+
+        divider.appendChild(img);
     } else {
         // Create text for wrong letter guess
         const pElement = document.createElement('p');
         pElement.textContent = input;
-        container.appendChild(pElement);
+        divider.appendChild(pElement);
     }
-
-    pos.appendChild(container);
+    pos.appendChild(divider)
 }
 
 function guessResultDisplay(state) {
@@ -64,12 +61,10 @@ function guessResultDisplay(state) {
         ]
     };
 
-    //fixa hidden med detta!
     const pElement = document.querySelector('.guess-message');
     const selectedArray = state ? messages.correct : messages.wrong;
     const randomMessage = selectedArray[Math.floor(Math.random() * selectedArray.length)];
     pElement.textContent = randomMessage;
-    //TODO: TIMER FUNKTION!
 }
 
 function guessResultDisplayEnding() {

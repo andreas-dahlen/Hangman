@@ -1,7 +1,6 @@
 .overlay-backdrop {
   position: fixed;
   inset: 0px; 
-  /*TODO: ändra tillbaka när färdig. Ändrade från 0 för att komma åt scoreboard butten*/
   background: rgba(0, 0, 0, 0.621);
   display: flex;
   justify-content: center;
