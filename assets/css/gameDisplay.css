@@ -98,6 +98,7 @@
     .wrong-guess-box {
         width: 300px;
         height: 100px;
+        margin: 1em 0;
     }
 }
 

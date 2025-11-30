@@ -11,8 +11,10 @@ function storeScoreboard() {
     guessedLetters: Array.from(gameState.guessedLetters),
     time: gameState.time,
     date: gameState.date,
-    winState: gameState.winState
-  };
+    winState: gameState.winState,
+    accuracy: gameState.accuracy,
+    score: gameState.score
+  }
   
   const existing = loadScoreboard()
   //5. skapar en konst som innehåller alla tidigare resultat. 
@@ -21,7 +23,7 @@ function storeScoreboard() {
   
   existing.sort((a, b) =>
   (a.guessedLetters?.length || 0) - (b.guessedLetters?.length || 0)
-);
+)
   //7. lägre antal gissningar betyder bättre resultat så de hamnar överst
   const top10 = existing.slice(0, 10);
   //8. laddar top 10 gissningsresultat inte fler

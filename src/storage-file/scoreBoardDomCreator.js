@@ -13,13 +13,17 @@ function infoToScoreBoard(currentUserStats) {
   const scoreBoardTime = document.createElement('p')
   const scoreBoardDate = document.createElement('p')
   const scoreBoardWinState = document.createElement('p')
+  const scoreBoardAccuracy = document.createElement('p')
+  const scoreBoardScore = document.createElement('p')
 
   scoreBoardName.innerText = 'Name: ' + currentUserStats.name;
   scoreBoardWordLength.innerText = 'Word length: ' + currentUserStats.wordLength;
   scoreBoardGuessedLetters.innerText = 'Guesses: ' + (currentUserStats.guessedLetters ? currentUserStats.guessedLetters.length : 0);
   scoreBoardTime.innerText = 'Time: ' + currentUserStats.time;
   scoreBoardDate.innerText = 'Date: ' + currentUserStats.date;
-  scoreBoardWinState.innerText = currentUserStats.winState;
+  scoreBoardWinState.innerText = 'Result: ' + currentUserStats.winState;
+  scoreBoardAccuracy.innerText = 'Accuracy: ' + currentUserStats.accuracy
+  scoreBoardScore.innerText = 'Score: ' + currentUserStats.score
 
   container.appendChild(scoreBoardName);
   container.appendChild(scoreBoardWordLength);
@@ -27,6 +31,8 @@ function infoToScoreBoard(currentUserStats) {
   container.appendChild(scoreBoardTime);
   container.appendChild(scoreBoardDate);
   container.appendChild(scoreBoardWinState);
+  container.appendChild(scoreBoardAccuracy)
+  container.appendChild(scoreBoardScore)
   
 
   scorboardDom.appendChild(container); 
