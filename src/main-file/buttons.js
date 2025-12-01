@@ -1,6 +1,6 @@
 import { showOverlay, hideAllOverlays } from '../display-file/overlayDecider.js'        //1. visar en overlay, döljer alla overlays när man vill gå tillbaka till spelvyn
 import { populateScoreboard } from "../storage-file/scoreBoardDomCreator.js";          //2. bygger och uppdaterar scoreboard-DOM med info från localStorage 
-import { setUser } from '../storage-file/currentGameState.js';
+import { setUser, gameState} from '../storage-file/currentGameState.js';
 import { newGame } from './load.js';
 
 //scorebordbutten i headern
@@ -55,12 +55,18 @@ function hideOverlaysButton() {
 //7. hämtar knappen hide-overlays-button, 
 toggleHideOverlays.forEach(btn => {
   btn.addEventListener('click', () => {
-    hideAllOverlays();
+    if (gameState.mistakes >= gameState.maxMistakes || gameState.guessIteration >= gameState.currentWord.length) {
+      const saveName = gameState.currentUser
+      newGame()
+      gameState.currentUser = saveName
+      return
+    } else {
+      hideAllOverlays() 
+    }
     //8.anropar hideAllOverlays för att stänga overlay
   });
 });
 }
-
 
 function handleNameInput() {
   const startButton = document.querySelector("#startButton");
