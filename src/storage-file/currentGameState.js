@@ -83,5 +83,5 @@ export {
     setWinState,
     setTimeAndDate,
     setAccuracy,
-    setScore
-};
+    setScore,
+}
