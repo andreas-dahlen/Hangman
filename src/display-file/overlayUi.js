@@ -1,7 +1,7 @@
 import { gameState } from '../storage-file/currentGameState.js';
 import { showOverlay } from './overlayDecider.js';
-import {loadEventListeners } from '../main-file/buttons.js'
- 
+import { loadEventListeners } from '../main-file/buttons.js'
+
 function createEndOverlay(title) {
   const card = document.createElement('div');
   card.classList.add('overlay-card', 'overlay-end');
@@ -14,12 +14,12 @@ function createEndOverlay(title) {
 
   const wrongGuessP = document.createElement('p')
   wrongGuessP.textContent = `wrong guesses: ${gameState.mistakes}`
-  
-    const accuracyP = document.createElement('p')
-    accuracyP.textContent = `accuracy: ${gameState.accuracy}`
-  
-    const scoreP = document.createElement('p')
-    scoreP.textContent = `score: ${gameState.score}`
+
+  const accuracyP = document.createElement('p')
+  accuracyP.textContent = `accuracy: ${gameState.accuracy}`
+
+  const scoreP = document.createElement('p')
+  scoreP.textContent = `score: ${gameState.score}`
 
   const btn = document.createElement('button');
   btn.textContent = 'New Game';
@@ -39,7 +39,6 @@ function createEndOverlay(title) {
   return card;
 }
 
-
 function showWinOverlay() {
   const pos = document.querySelector('.winner-dom')
   const card = createEndOverlay(`Congratulations! 🎉 ${gameState.currentUser} you won!`);
@@ -58,15 +57,4 @@ function showLoseOverlay() {
   loadEventListeners('scoreboardbutton')
 }
 
-function showScoreBoard() {
-    leaderboard.sort((a, b) => {
-        // 1. Sort by score (higher is better)
-        if (b.score !== a.score) {
-            return b.score - a.score;
-        }
-        // 2. Tie-break by accuracy
-        return b.accuracy - a.accuracy;
-    });
-}
-
-export {showWinOverlay, showLoseOverlay}; // La till de nya funktionerna
+export { showWinOverlay, showLoseOverlay };
