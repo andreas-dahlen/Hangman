@@ -5,7 +5,7 @@
 import { gameState, resetGameState, setWord, setTimeAndDate } from "../storage-file/currentGameState.js";
 //importera även timeLog
 import { wordList } from "../storage-file/wordList.js";
-import { showOverlay} from "../display-file/overlayDecider.js"
+import { showOverlay } from "../display-file/overlayDecider.js"
 import { loadEventListeners } from './buttons.js'
 
 //generates a random word

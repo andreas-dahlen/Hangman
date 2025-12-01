@@ -28,7 +28,7 @@ function mistakeDisplay(input) {
     
     if (input ==='') {
         const img = document.createElement('img');
-        img.src = '../../assets/images/cowboymelon.png';
+        img.src = './assets/images/cowboymelon.png';
         img.alt = 'Wrong word guess';
 
         divider.appendChild(img);
