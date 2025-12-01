@@ -1,9 +1,9 @@
 const overlays = {
-  name: document.querySelector('.overlay-name-display'),
-  scoreboard: document.querySelector('.scoreboard-display'),
-  winner: document.querySelector('.winner-display'),
-  loser: document.querySelector('.loser-display')
-};
+    name: document.querySelector('.overlay-name-display'),
+    scoreboard: document.querySelector('.scoreboard-display'),
+    winner: document.querySelector('.winner-display'),
+    loser: document.querySelector('.loser-display')
+}
 
 function hideAllOverlays() {
     Object.values(overlays).forEach(el => {
@@ -20,4 +20,4 @@ function showOverlay(type) {
     document.querySelector('.guess-bar').disabled = true;
 }
 
-export {hideAllOverlays, showOverlay}
+export { hideAllOverlays, showOverlay }

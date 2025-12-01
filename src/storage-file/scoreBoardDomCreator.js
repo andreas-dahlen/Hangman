@@ -1,11 +1,11 @@
 import { loadScoreboard } from './loadFromStorage.js';
 
-const scorboardDom = document.querySelector('.scoreboard-dom')
+const scoreboardDom = document.querySelector('.scoreboard-dom')
 
 function infoToScoreBoard(currentUserStats) {
 
   const container = document.createElement('div')
-  container.classList.add('scoreboard-players')  //TODO: skulle kunna lägga på klasser på olika element..?//TODO: behöver score, accurecy, mistakes!!
+  container.classList.add('scoreboard-players')
 
   const scoreBoardName = document.createElement('h3')
   const scoreBoardWordLength = document.createElement('p')
@@ -22,8 +22,8 @@ function infoToScoreBoard(currentUserStats) {
   scoreBoardTime.innerText = 'Time: ' + currentUserStats.time;
   scoreBoardDate.innerText = 'Date: ' + currentUserStats.date;
   scoreBoardWinState.innerText = 'Result: ' + currentUserStats.winState;
-  scoreBoardAccuracy.innerText = 'Accuracy: ' + currentUserStats.accuracy
-  scoreBoardScore.innerText = 'Score: ' + currentUserStats.score
+  scoreBoardAccuracy.innerText = 'Accuracy: ' + currentUserStats.accuracy;
+  scoreBoardScore.innerText = 'Score: ' + currentUserStats.score;
 
   container.appendChild(scoreBoardName);
   container.appendChild(scoreBoardWordLength);
@@ -31,11 +31,11 @@ function infoToScoreBoard(currentUserStats) {
   container.appendChild(scoreBoardTime);
   container.appendChild(scoreBoardDate);
   container.appendChild(scoreBoardWinState);
-  container.appendChild(scoreBoardAccuracy)
-  container.appendChild(scoreBoardScore)
-  
+  container.appendChild(scoreBoardAccuracy);
+  container.appendChild(scoreBoardScore);
 
-  scorboardDom.appendChild(container); 
+
+  scoreboardDom.appendChild(container);
 }
 
 function compare(a, b) {
@@ -45,21 +45,19 @@ function compare(a, b) {
   if (dateA < dateB) return -1;
   if (dateA > dateB) return 1;
 
-  return b.time.localeCompare(a.time); //EN FULGREJ men det får det att fungera utan att behöva ändra haöva koden!!//behandlar tiden som strängar och sorterar den i bokstavsordning//tar hänsyn till åäö//fungerar brar för att formatet på tiden är konsekvent
+  return b.time.localeCompare(a.time);
 }
 
-function populateScoreboard(sortBy = 'guesses') { 
+function populateScoreboard(sortBy = 'guesses') {
 
-  scorboardDom.innerHTML = '';
+  scoreboardDom.innerHTML = '';
   let list = loadScoreboard(sortBy);
 
   if (sortBy === 'date') {
-    list.sort(compare);                                  
-
+    list.sort(compare);
   }
 
-  list.forEach(entry => {     
-
+  list.forEach(entry => {
     infoToScoreBoard(entry)
   });
 }

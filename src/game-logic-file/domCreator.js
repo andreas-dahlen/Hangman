@@ -1,11 +1,9 @@
-//shows a letter
 function revealLetter(index) {
     const slots = document.querySelectorAll('.letter-slot')
     const slot = slots[index]
     slot.querySelector('.individual-letter').classList.remove('hidden');
 }
 
-//shows error message
 function showError(message) {
     const box = document.querySelector('#input-error');
 
@@ -13,29 +11,28 @@ function showError(message) {
     box.classList.remove('hidden');
 
     clearTimeout(window._errorTimeout);
-    
+
     window._errorTimeout = setTimeout(() => {
         box.classList.add('hidden');
     }, 4000);
 }
 
-//puts words in the mistakeDisplay
 function mistakeDisplay(input) {
 
     const pos = document.querySelector('.wrong-guess-display')
     const divider = document.createElement('div')
     divider.classList.add('wrong-guess-object')
-    
-    if (input ==='') {
+
+    if (input === '') {
         const img = document.createElement('img');
         img.src = './assets/images/cowboymelon.png';
         img.alt = 'Wrong word guess';
 
         divider.appendChild(img);
     } else {
-        // Create text for wrong letter guess
         const pElement = document.createElement('p');
         pElement.textContent = input;
+
         divider.appendChild(pElement);
     }
     pos.appendChild(divider)
@@ -49,15 +46,30 @@ function guessResultDisplay(state) {
             'Getting there!',
             'Awesome!',
             'Well done!',
-            'Good! now we cooking!'
+            'Good! now we cooking!',
+            'Yeehaw! You nailed it!',
+            'Good work, partner!',
+            'You’re rustlin’ up the letters!',
+            'Well done, cowboy cook!',
+            'Hot diggity! That’s right!',
+            'Cowpoke approved!',
+            'You got it! Now let’s wrangle the next one!',
+            'Right on! You’re on a roll!'
         ],
         wrong: [
             'Ooof',
             'Dang, guess again!',
             'Pause and think!',
-            'Think before you guess!',
             'Better luck next guess!',
-            'Hint! The cowboy likes food!'
+            'Hint! The cowboy likes food!',
+            'Dang, missin’ that one!',
+            'Hold your horses! Try again!',
+            'Nope, think like a cowboy cook!',
+            'Careful now, partner!',
+            'Oops! The campfire ain’t hot yet!',
+            'Think before you guess, cowboy!',
+            'Hint: This grub is tasty!',
+            'Try wrangling another letter!'
         ]
     };
 
@@ -69,7 +81,7 @@ function guessResultDisplay(state) {
 
 function guessResultDisplayEnding() {
     const pElement = document.querySelector('.guess-message');
-    pElement.textContent = 'Guess an entire English word or individual letter. You have six lives. The word is always food related. Good luck!'
+    pElement.textContent = 'Round up your guesses! You can try a whole word or just a letter. Six lives in the saddle. The grub’s always delicious. Good luck, cowboy!'
 }
 
-export {revealLetter, showError, mistakeDisplay, guessResultDisplay, guessResultDisplayEnding }
+export { revealLetter, showError, mistakeDisplay, guessResultDisplay, guessResultDisplayEnding }
