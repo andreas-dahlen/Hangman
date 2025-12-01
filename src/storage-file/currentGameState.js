@@ -7,7 +7,7 @@ const gameState = {
     correctGuesses: 0,
     mistakes: 0,
     currentUser: '',
-    winState: '', //samma som när användaren ser result:
+    winState: '',
     time: '',
     date: '',
     accuracy: '',
@@ -57,18 +57,13 @@ function setAccuracy() {
 function setScore() {
     const baseScore = gameState.currentWord.length * 10;
     const penalty = gameState.mistakes * 5;
-
     gameState.score = Math.max(baseScore - penalty, 0);
 }
 
-//adds time into gameState.time
-//adds date into gameState.date
 function setTimeAndDate() {
     
     let now = new Date();
-    
     let time = now.toLocaleTimeString();
-    
     let date = now.toDateString();
     
     gameState.date = date;
