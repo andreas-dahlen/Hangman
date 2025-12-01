@@ -69,7 +69,7 @@ function guessResultDisplay(state) {
 
 function guessResultDisplayEnding() {
     const pElement = document.querySelector('.guess-message');
-    pElement.textContent = 'Guess an entire English word or individual letter. You have six lives. Good luck!'
+    pElement.textContent = 'Guess an entire English word or individual letter. You have six lives. The word is always food related. Good luck!'
 }
 
 export {revealLetter, showError, mistakeDisplay, guessResultDisplay, guessResultDisplayEnding }

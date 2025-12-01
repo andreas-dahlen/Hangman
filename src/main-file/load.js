@@ -74,7 +74,6 @@ function newGame() {
     showOverlay('name')
 }
 
-
 //Function for testing CSS style for the longest word.
 // function getLongestWord() {
 //     let longest = ''
